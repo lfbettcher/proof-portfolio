@@ -1,0 +1,417 @@
+\documentclass[12pt]{amsart}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{eucal}
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{xypic}
+\usepackage{mathrsfs}
+\xyoption{all}
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+\pagestyle{empty}
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+\setlength{\topmargin}{-0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\footskip}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+\pagestyle{plain}
+%----------------------------------------------------------------
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{exerc}[thm]{Exercise}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%----------------------------------------------------------------
+\begin{document}
+
+\textbf{Math 231 - Discrete Math \hfill{} Notes for Week 4}
+
+\bigskip
+\bigskip
+
+\textbf{Induction}
+
+
+\bigskip
+
+
+Let's start off with an analogy:  Imagine we can line up dominos, one after the next, such that when any domino in the sequence falls it knocks over the next domino in the sequence.  What happens if we knock down the first domino?  Well, it knocks down the second domino, which knocks down the third domino, which knocks down the fourth domino, and so on.\\
+
+This analogy can be helpful when encountering the principle of $``$induction."  The principle comes in two forms, one called the $``$weak form" and one called the $``$strong form."  We begin with the weak form.\\
+
+
+Here is the \textbf{weak form of the Principle of Mathematical Induction}:\\
+
+Suppose $P(n)$ is a propositional function over a domain $D=\{n_{0},n_{0}+1,n_{0}+2,...\}$ of consecutive integers with a least integer $n_{0}$.
+
+\bigskip
+
+Suppose both of the following statements are true:
+
+\bigskip
+
+\begin{enumerate}
+
+\item[(i)]  $P(n_{0})$ is true.
+
+\medskip
+ [The \emph{base case}.]
+
+\bigskip
+
+\item[(ii)]  For all $k\in D$, if $P(k)$ is true then $P(k+1)$ is true.
+
+ \medskip
+
+[The \emph{inductive step}; the hypothesis $P(k)$ is the \emph{inductive hypothesis}.]\\
+
+\end{enumerate}
+
+Then the statement $\forall n\in D, P(n)$ is true.  We say that it has been $``$proved by induction."\\
+
+Let's return to our analogy: The inductive step is akin to showing that when an arbitrary domino in the sequence falls $(P(k))$ it knocks over the next domino in the sequence $(P(k+1))$.  The base case is akin to knocking over the first domino $(P(n_0))$.\\ \\
+
+
+Proofs by induction generally follow this framework:\\
+
+\underline{Base Step}: Show that $P(n_0)$ is true. (Don't assume it is true!)\\
+
+\underline{Inductive Step}:  Let $k$ be in the domain.  Assume $P(k)$ is true (inductive hypothesis).\\ Then show that $P(k+1)$ is true.  (Don't assume it is true!)
+
+
+\newpage
+
+Let's begin with an example for which we already have a direct proof.\\
+
+\emph{Proposition}:  $\forall n\in\nats$, $\displaystyle \sum_{i=1}^n i=\frac{n(n+1)}{2}$.\\
+
+\emph{Proof}:  Let's begin by showing that $\displaystyle \sum_{i=1}^n i=\frac{n(n+1)}{2}$ is true when $n=1$.  Well, $\displaystyle \sum_{i=1}^1 i=1$ and $\displaystyle \frac{1(1+1)}{2}=1$.  So  $\displaystyle \sum_{i=1}^1 i=\frac{1(1+1)}{2}$.  That establishes the base case. \\
+
+Let $k\in \nats$ be arbitrary.  Assume that $\displaystyle \sum_{i=1}^k i=\frac{k(k+1)}{2}$.  This is the inductive hypothesis.  We want to show that $\displaystyle \sum_{i=1}^{k+1} i=\frac{(k+1)((k+1)+1)}{2}$. (\emph{It is critical that we do not assume this is true as that would be begging the question.})\\
+
+We know that $\displaystyle \sum_{i=1}^{k+1} i=\left(\displaystyle \sum_{i=1}^{k} i\right)+(k+1)$.  By using the inductive hypothesis, we have $\displaystyle \sum_{i=1}^{k+1} i=\frac{k(k+1)}{2}+(k+1)$.  By factoring we get $\displaystyle \sum_{i=1}^{k+1} i=(k+1)\left(\frac{k}{2}+1\right)$.  Since $\displaystyle \frac{k}{2}+1=\frac{k+2}{2}$ it follows that $\displaystyle \sum_{i=1}^{k+1} i=(k+1)\left(\frac{k+2}{2}\right)=\frac{(k+1)(k+2)}{2}$, which completes the proof of the inductive step.  So we have proved $\forall n\in\nats$, $\displaystyle \sum_{i=1}^n i=\frac{n(n+1)}{2}$ by induction$\;_{\square}$\\
+
+Let's do another similar example involving a summation identity:\\
+
+\emph{Proposition}:  $\forall n\in\nats$, $\displaystyle \sum_{i=1}^n (2i-1)=n^2$.\\
+
+\emph{Proof}:  $\displaystyle \sum_{i=1}^1 (2i-1)=2(1)-1=1=1^2$ establishes the base case.\\
+
+Let $k\in\nats$ be arbitrary.  Assume that $\displaystyle \sum_{i=1}^k (2i-1)=k^2$.  This is the inductive hypothesis.\\
+
+Then  $\displaystyle \sum_{i=1}^{k+1} (2i-1)=\left(\sum_{i=1}^{k} (2i-1)\right)+(2(k+1)-1)=\left(\sum_{i=1}^{k} (2i-1)\right)+(2k+1)$.  By using the inductive hypothesis $\displaystyle \sum_{i=1}^{k+1} (2i-1)=k^2+(2k+1)=k^2+2k+1=(k+1)^2$.  So we have proved $\forall n\in\nats$, $\displaystyle \sum_{i=1}^n (2i-1)=n^2$ by induction$\;_{\square}$
+
+
+\newpage
+
+
+The following example involves a well-known summation identity:\\
+
+\emph{Proposition}:  $\forall r\in \complex\setminus\{ 1\}$, $\forall n\in \nats$, $\displaystyle 1+\sum_{i=1}^{n}r^{i}=\frac{1-r^{n+1}}{1-r}$.
+
+\bigskip
+
+\emph{Proof}:  Let $r\in\complex\setminus\{1\}$.  $\displaystyle 1+\sum_{i=1}^{1}r^{i}=1+r$ and $\displaystyle \frac{1-r^{1+1}}{1-r}=\frac{1-r^2}{1-r}=\frac{(1+r)(1-r)}{1-r}=1+r$.  So the base case holds.\\
+
+Let $k\in\nats$.  Assume that $1+\displaystyle \sum_{i=1}^{k}r^{i}=\frac{1-r^{k+1}}{1-r}$ (inductive hypothesis).  Then\\
+
+$\displaystyle 1+\sum_{i=1}^{k+1}r^{i}=\left(1+\sum_{i=1}^{k}r^{i}\right)+r^{k+1}=\frac{1-r^{k+1}}{1-r}+r^{k+1}=\frac{1-r^{k+1}+r^{k+1}(1-r)}{1-r}=\frac{1-r^{(k+1)+1}}{1-r}$.\\
+
+  This completes the proof by induction$\mbox{ }_{\square}$\\ \\
+
+
+
+Let's see some examples involving inequalities.\\
+
+
+\emph{Proposition}:  For all integers $n\geq 3$, $n^2\geq 2n+1$.\\
+
+\emph{Proof}:  $3^2=9$ and $2(3)+1=7$ so the base case holds as $9\geq 7$.\\
+
+Let $k\in\ints$ and $k\geq 3$.  Assume that $k^2\geq 2k+1$.  This is the inductive hypothesis.\\
+
+Then by the inductive hypothesis and the fact that $2k+1\geq 2$, \\ $(k+1)^2=k^2+2k+1\geq (2k+1)+2k+1\geq (2k+1)+2=2(k+1)+1$.  That completes the proof by induction$\;_{\square}$\\
+
+
+\emph{Proposition}:  For all integers $n\geq 4$, $2^n\geq n^2$. \\
+
+\emph{Proof}: $2^4=16$ and $4^2=16$ so the base case holds as $16\geq 16$.  \\
+
+Let $k\in\ints$ and $k\geq 4$.  Assume $2^k\geq k^2$.  This is the inductive hypothesis.\\
+
+By the inductive hypothesis and the previous proposition, \\ $2^{k+1}=2(2^k)\geq 2k^2=k^2+k^2\geq k^2+2k+1=(k+1)^2$.  That completes the proof by induction$\;_{\square}$
+
+
+
+\newpage
+
+
+\emph{Proposition}:  For all integers $n\geq 4$, $n!>2^n$.\\
+
+\emph{Proof}:  Since $4!=24$, $2^4=16$ and $24>16$ the base case holds.\\
+
+Let $k\in\ints$ and $k\geq 4$.  Assume that $k!>2^k$.  This is the inductive hypothesis.\\
+
+Then using the inductive hypothesis and the fact that $k+1>2$,
+
+\begin{eqnarray*}
+(k+1)! &=& k! (k+1)\\
+\\
+&> & 2^k (k+1)\hspace{1cm} \mbox{(by the inductive hypothesis)}\\
+\\
+&>& 2^k (2)\hspace{1.75cm} (\mbox{since }k+1>2) \\
+\\
+&=& 2^{k+1}.\end{eqnarray*}
+
+So $(k+1)!>2^{k+1}$, completing the proof by induction$\;_{\square}$\\
+
+\emph{Proposition}:  For all integers $n\geq 2$, $\dfrac{1}{0!}+\dfrac{1}{1!}+\cdots +\dfrac{1}{n!}<3-\dfrac{2}{(n+1)!}$.\\
+
+
+\emph{Proof}:  $\displaystyle \frac{1}{0!}+\frac{1}{1!}+\frac{1}{2!}=1+1+\frac{1}{2}=\frac{5}{2}$  and $\displaystyle 3-\dfrac{2}{(2+1)!}=3-\dfrac{2}{3!}=3-\dfrac{1}{3}=\dfrac{8}{3}$.  So the base case holds since $\displaystyle \frac{5}{2}<\frac{8}{3}$.\\
+
+Let $k\geq 2$ be an integer.  Assume $\dfrac{1}{0!}+\dfrac{1}{1!}+\cdots +\dfrac{1}{k!}<3-\dfrac{2}{(k+1)!}$.  Then
+
+\begin{eqnarray*}
+\dfrac{1}{0!}+\dfrac{1}{1!}+\cdots +\dfrac{1}{k!}+\dfrac{1}{(k+1)!} &=& \left[\dfrac{1}{0!}+\dfrac{1}{1!}+\cdots +\dfrac{1}{k!}\right]+\dfrac{1}{(k+1)!}\\
+\\
+&<& 3-\dfrac{2}{(k+1)!}+\dfrac{1}{(k+1)!}  \hspace{1.5cm} \mbox{(inductive hypothesis)}\\
+\\
+&=& 3-\dfrac{1}{(k+1)!}  \hspace{3.5cm} \mbox{(combining like terms)}\\
+\\
+&<& 3-\dfrac{1}{(k+1)!}\cdot\dfrac{2}{k+2}  \hspace{2cm} \mbox{(subtraction of a smaller positive)}\\
+\\
+&=& 3-\dfrac{2}{(k+2)!}\end{eqnarray*}
+
+This completes the proof by induction$\;_{\square}$\\ \\
+
+
+\newpage
+
+Let's use induction to prove that a sequence decreases:
+
+\medskip
+
+\emph{Proposition}:   The sequence recursively defined by $a_{1}= 2$, and $\displaystyle a_{n+1}=\frac{a_{n}^{2} +5}{5}$ for $n=1,2,...$ is decreasing (the terms get smaller).\\
+
+
+\emph{Proof}:  We want to show that $a_{n+1}<a_{n}$ for all $n\in\nats$.  Since $a_{2}=\frac{9}{5}<2=a_{1}$ the base case holds.\\
+
+
+Let $k\in\nats$.  Assume $a_{k+1}<a_{k}$.  Then
+
+$$a_{k+2}=\frac{a_{k+1}^{2} +5}{5}<\frac{a_{k}^{2} +5}{5}=a_{k+1}.$$
+
+
+That completes the proof by induction$\;_{\square}$\\ \\
+
+Let's do an example involving sets.\\
+
+\emph{Proposition}:  For any integer $n\geq 0$, the power set of an $n$-element set has $2^n$ elements.\\
+
+\emph{Proof}:  The power set of the empty set $\emptyset$, which has $0$ elements, is $\{\emptyset\}$, which has $2^0=1$ elements.  This establishes the base case.  \\
+
+Let $k\geq 0$ be an integer.  Assume that the power set of any $k$-element set has $2^k$ elements.  \\
+
+Let $X$ be a set with $k+1$ elements and $a\in X$ be a particular element.  We have to count the number of subsets of $X$.  For any subset $S\subseteq X$, either $a\in S$ or $a\not\in S$, but not both.  Furthermore there exist subsets of $X$ that contain $a$, like $\{a\}$, and subsets of $X$ that don't contain $a$, like $\emptyset$.  So we can partition $\powerset{(X)}$ into two subsets, $A$ and $B$, where $A$ consists of subsets of $X$ that contain $a$ and $B$ consists of subsets of $X$ that do not contain $a$.  $B$ is the powerset of the $k$-element set $X\setminus \{a\}$, so by our inductive hypothesis, $|B|=2^k$.  Notice that $A=\{S\cup\{a\} |S\in B\}$, implying that $A$ has the same number of elements as $B$.  Hence $|A|=|B|=2^k$.  Finally, since $\{A,B\}$ is a partition of $\powerset{(X)}$ we see that $|\powerset{(X)}|=|A|+|B|=2^k+2^k=2(2^k)=2^{k+1}$, completing the proof by induction$\;_{\square}$
+
+\newpage
+
+Here is an example involving divisibility:\\
+
+\emph{Proposition}:  $\forall n\in\nats$, $3^{2n}-1$ is divisible by $8$.\\
+
+\emph{Proof}:  $3^{2(1)}-1=8$ so the base case holds.  \\
+
+Let $k\in\nats$.  Assume  $3^{2k}-1$ is divisible by $8$.  Then $\exists j\in\ints$ such that $3^{2k}-1=8j$.\\
+
+Then $3^{2(k+1)}-1=3^{2k+2}-1=3^{2k}(3^2)-1=3^{2k}(9)-1$.  Since $3^{2k}=1+8j$ we have $3^{2(k+1)}-1=(1+8j)(9)-1=9+72j-1=8+72j=8(1+9j)$ is divisible by $8$ since $1+9j\in\ints$.  That completes the proof by induction$\;_{\square}$\\ \\
+
+
+Each of the following propositions are false.  The attempted induction arguments are invalid.  Try to determine the flaw in each argument:\\
+
+\emph{Proposition}:  For all integers $n\geq 1$, $3^n -2$ is even.\\
+
+\emph{Proof (flawed)}:  Let's suppose that $3^k-2$ is even for some integer $k\geq 1$.  Then $3^k-2=2m$ for some $m\in\ints$.  Then $3^{k+1}-2=3^k(3)-2=3^k(2+1)-2=3^k (2)+3^k-2=3^k (2)+2m=2(3^k+m)$ has the form of an even number since $3^k+m\in\ints$.  That completes the proof by induction$\;_{\square}$\\
+
+So what's the flaw?  It probably is pretty clear that in this argument no base case is ever shown!  That is indeed the flaw, no matter what integer you pick for $k$, including $k=1$, $3^k-2$ is odd.  So it would be impossible to satisfy the base case.\\
+
+\emph{Proposition}:  All horses are the same color.\\
+
+\emph{Proof (flawed)}:  Let's have $P(n)$ be the statement $``$a set of $n$ horses is a set of horses of the same color."  This is true when $n=1$.  A set consisting of $1$ horse is a set of horses of the same color.  The base case holds.  Let $k\in\nats$ and assume $P(k)$ is true, that is, assume any set of $k$ horses is a set of horses of the same color.  This is the inductive hypothesis.  Now consider $(k+1)$ horses $h_1,h_2,...,h_k,h_{k+1}$.  We can apply the inductive hypothesis to $h_1,h_2,...,h_k$ and to $h_2,...,h_k,h_{k+1}$.  So all of the horses $h_1,h_2,...,h_k$ are the same color and all of the horses $h_2,...,h_k,h_{k+1}$ are the same color.  Since horse $h_2$ belongs to both groupings, it follows that all of the $k+1$ horses are the same color, that of $h_2$.  That completes the proof by induction$\;_{\square}$\\
+
+So what's the flaw?  It's not the base case; it is more subtle than that.  It's not the inductive hypothesis, as that is done as it should be.  It is the argument in the inductive step.  But what about it specifically?  It's the part where we assume $h_2$ belongs to both groupings.  This is nearly always the case, but not always.  In particular, this argument fails at $k=1$ as $h_2$ would not belong to both groupings...
+
+
+
+\newpage
+
+
+Here is the \textbf{strong form of the Principle of Mathematical Induction}:\\
+
+Suppose $P(n)$ is a propositional function over a domain $D=\{n_{0},n_{0}+1,n_{0}+2,...\}$ of consecutive integers with a least integer $n_{0}$.
+
+\bigskip
+
+Suppose both of the following statements are true:
+
+\bigskip
+
+\begin{enumerate}
+
+\item[(i)]  $P(n_{0})\wedge P(n_0 +1)\wedge \cdots P(b)$ is true.
+
+\medskip
+ [The \emph{base case(s)}.]
+
+\bigskip
+
+\item[(ii)]  For all integers $k\geq b$, if $P(i)$ is true for all integers $n_0 \leq i\leq k$ then $P(k+1)$ is true.
+
+ \medskip
+
+[The \emph{inductive step}; the hypothesis $P(i)$ is true for all integers $n_0 \leq i\leq k$ is the \emph{inductive hypothesis}.]\\
+
+\end{enumerate}
+
+Then the statement $\forall n\in D, P(n)$ is true.  We say that it has been $``$proved by induction."\\
+
+
+The number of base cases is going to vary based on how the inductive step works.  In the inductive step $k$ is set to be an arbitrary integer greater than or equal to the integer corresponding to the last base case.\\
+
+Let's start with a famous example that only requires a single base case:\\
+
+\emph{Proposition}: A chocolate bar that consists of a $n$ squares of chocolate ($n\in\nats$) arranged in a rectangular pattern takes a minimum of $n-1$ breaks along lines between pieces to completely separate into its $n$ individual squares.\\
+
+\emph{Proof}:  A chocolate bar that consists of just one square takes $0$ breaks, so the base case holds.\\
+
+
+Let $k\in\nats$.  Assume for any integer $i$ satisfying $1\leq i\leq k$, a chocolate bar that consists of $i$ squares arranged in a rectangular
+pattern takes a minimum of $i-1$ breaks along lines between pieces to completely separate into its $i$ individual squares.  This is the inductive hypothesis.\\
+
+Consider a chocolate bar of $k+1$ squares arranged in a rectangular pattern.  Break it!  Then you get two chocolate bars with $k_{1},k_{2}\in\{1,2,...,k\}$ squares respectively.  Furthermore, $k_{1}+k_{2}=k+1$.
+
+
+By the inductive hypothesis applied to these bars, it takes $(k_{1}-1)+(k_{2}-1)=(k+1)-2=k-1$ total breaks to completely separate these two bars.  Putting this all together we have a total of $1+(k-1)=k$ breaks, completing the proof by induction$\;_{\square}$
+
+\newpage
+
+Let's work on an example that requires more than one base case:\\
+
+\emph{Proposition}:  The sequence recursively defined by $a_1=4$, $a_2=22$ and $a_n=a_{n-1}+6a_{n-2}$ for $n=3,4...$ satisfies $a_n=2\cdot 3^n+(-2)^n$ for all $n\in\nats$.\\
+
+\emph{Proof}:  $2\cdot 3^1+(-2)^1=6-2=4=a_1$ and $2\cdot 3^2+(-2)^2=18+4=22=a_2$.  These are the two necessary base cases.\\
+
+Let $k\geq 2$ be an integer.  Assume for any integer $i$ satisfying $1\leq i\leq k$, $a_i=2\cdot 3^i+(-2)^i$.  This is the inductive hypothesis.\\
+
+By the recursive definition, $a_{k+1}=a_k+6a_{k-1}$.  By the inductive hypothesis, $a_k=2\cdot 3^k+(-2)^k$ and $a_{k-1}=2\cdot 3^{k-1}+(-2)^{k-1}$.  Then
+
+
+
+\begin{eqnarray*}
+a_{k+1} &=& 2\cdot 3^k+(-2)^k+6(2\cdot 3^{k-1}+(-2)^{k-1}) \\
+\\
+&=& 2\cdot 3^k+12\cdot 3^{k-1}+(-2)^k+6(-2)^{k-1}  \\
+\\
+&=& 3^{k-1}(6+12)+(-2)^{k-1}(-2+6) \\
+\\
+&=& 3^{k-1}(18)+(-2)^{k-1}(4)  \\
+\\
+&=& 3^{k-1}(2\cdot 3^2)+(-2)^{k-1}(-2)^2  \\
+\\
+&=& 2\cdot 3^{k+1}+(-2)^{k+1}.\end{eqnarray*}
+
+This completes the proof by induction$\;_{\square}$\\
+
+This example required two base cases because we wanted to use the inductive hypothesis at $i=k$ and at $i=k-1$.  Often one determines the number of base cases necessary by attempting to work out the inductive step first...
+
+
+\newpage
+
+The following type of problem is famous and is often called a $``$stamp problem."  \\
+
+
+\emph{Proposition}: $\forall n\in\{8,9,10,...\}$, there exist non-negative integers $x,y$ such that $3x+5y=n$ (an alternative expression of this problem is $``$All postage of $8$ cents or more can be paid with $3$-cent and $5$-cent stamps.")\\
+
+\emph{Proof}:  $3(1)+5(1)=8$, $3(3)+5(0)=9$ and $3(0)+5(2)=10$.  That establishes the base cases.\\
+
+Let $k\geq 10$ be an integer.  Assume for any integer $i$ satisfying $8\leq i\leq k$, there exists non-negative integers $x,y$ such that $3x+5y=i$.  This is the inductive hypothesis.\\
+
+Then $k+1=3+(k-2)$.  By the inductive hypothesis, there exist non-negative integers $a,b$ such that $k-2=3a+5b$.  Then $k+1=3+3a+5b=3(1+a)+5b$.  So with $x=1+a$ and $y=b$ we see that there are non-negative integers $x,y$ such that $k+1=3x+5y$.  This completes the proof by induction$\;_{\square}$\\
+
+There are many variants on the problem above!\\ \\
+
+\emph{Proposition}:  $\forall n\in \nats$, the units digit of $4^n$ is $4$ if $n$ is odd and $6$ if $n$ is even.\\
+
+\emph{Proof}:  $4^1=4$ has a units digit of $4$ and $4^2=16$ has a units digit of $6$.  That establishes the base cases.\\
+
+Let $k\geq 2$ be an integer.  Assume for any integer $i$ satisfying $1\leq i\leq k$, the units digit of $4^i$ is $4$ if $i$ is odd and $6$ if $i$ is even.  This is the inductive hypothesis.\\
+
+We consider the units digit of $4^{k+1}$.  We argue by cases:  Either $k+1$ is even or it is odd.  \\
+
+Let's start with the $k+1$ is odd case.   Then $k$ is even and by the inductive hypothesis the units digit of $4^k$ is $6$.  So $4^k=10\ell +6$ for some non-negative integer $\ell$.  Then $4^{k+1}=4(4^k)=4(10\ell+6)=40\ell+24=10(4\ell+2)+4$ has a units digit of $4$.\\
+
+
+Let's now move to the $k+1$ is even case. Then $k$ is odd and by the inductive hypothesis the units digit of $4^k$ is $4$.  So $4^k=10j+4$ for some non-negative integer $j$.  Then $4^{k+1}=4(4^k)=4(10j+4)=40j+16=10(4j+1)+6$ has a units digit of $6$.  \\
+
+That completes the proof by induction$\;_{\square}$
+
+\newpage
+
+
+\emph{Proposition}:  Any positive integer $n$ has a representation of the form $$n=2^r+c_{r-1}2^{r-1}+\cdots c_2 2^2+c_1 2^1+c_0$$ for some integer $r\geq 0$ and for some $c_0,c_1,...,c_{r-1}\in\{0,1\}$.\\
+
+\emph{Proof}:  Since $1$ is of the form $2^r+c_{r-1}2^{r-1}+\cdots c_2 2^2+c_1 2^1+c_0$ for $r=0$ and $c_0=1$ we have established the base case.\\
+
+Let $k\geq 1$ be an integer.  Assume for any integer $i$ satisfying $1\leq i\leq k$, $i$ has a representation of the form $i= 2^r+c_{r-1}2^{r-1}+\cdots c_2 2^2+c_1 2^1+c_0$ for some integer $r\geq 0$ and for some $c_0,c_1,...,c_{r-1}\in\{0,1\}$.  This is the inductive hypothesis.\\
+
+We consider two cases:  Either $k+1$ is even or it is odd.\\
+
+Let's start with the $k+1$ is even case:  Then $\displaystyle \frac{k+1}{2}$ is a positive integer and by the inductive hypothesis $\displaystyle \frac{k+1}{2}$ has a representation of the form $\displaystyle \frac{k+1}{2}=2^r+c_{r-1}2^{r-1}+\cdots c_2 2^2+c_1 2^1+c_0$ for some integer $r\geq 0$ and for some $c_0,c_1,...,c_{r-1}\in\{0,1\}$.  Then by multiplying both sides by $2$ we see that $k+1=2^{r+1}+c_{r-1}2^{r}+\cdots c_2 2^3+c_1 2^2+c_0 2^1+0$, which is of the required form.\\
+
+Let's move on to the $k+1$ is odd case:  Then $k$ is even, $\displaystyle \frac{k}{2}$ is a positive integer and by the inductive hypothesis $\displaystyle \frac{k}{2}$ has a representation of the form $\displaystyle \frac{k}{2}=2^r+c_{r-1}2^{r-1}+\cdots c_2 2^2+c_1 2^1+c_0$ for some integer $r\geq 0$ and for some $c_0,c_1,...,c_{r-1}\in\{0,1\}$.  Then by multiplying both sides by $2$ and then adding $1$ to both sides we get $k+1=2^{r+1}+c_{r-1}2^{r}+\cdots c_2 2^3+c_1 2^2+c_0 2^1+1$, which is of the required form.\\
+
+That completes the proof by induction$\;_{\square}$\\ \\
+
+\emph{Exercise left for the reader}:  Show the above representation is unique!
+
+\newpage
+One more example:\\
+
+\emph{Proposition}:  The sequence $f_{1},f_{2},...$ be given by the initial values $f_{1}=f_{2}=1$ and the recurrence relation $f_{n}=f_{n-1}+f_{n-2}$ for $n=3,4,...$ (this is called the \underline{Fibonacci sequence}) satisfies  $\forall n\in\nats$, $f_{n}\geq \phi^{n-2}$ where $\phi=\dfrac{1+\sqrt{5}}{2}$ (the \emph{golden ratio}).
+
+\bigskip
+
+\emph{Proof}:  $f_{1}=1$ and $\phi^{1-2}=\phi^{-1} =\dfrac{2}{1+\sqrt{5}}<1$.  $f_{2}=1$ and $\phi^{2-2}=\phi^{0}=1$.  So $f_{n}\geq \phi^{n-2}$ for $n=1$ and $n=2$.  So the two base cases hold.\\
+
+Let $k\geq 2$ be an integer.  Assume for any integer $i$ satisfying $1\leq i\leq k$, $f_{i}\geq \phi^{i-2}$.  This is the inductive hypothesis.\\
+
+A quick calculation with the quadratic formula (\emph{exercise left to the reader}) shows that $\phi$ is a root of $x^{2}-x-1$.  Hence $\phi^{2}=\phi+1$.\\
+
+
+Now consider that $f_{k+1}=f_{k}+f_{k-1}$, so by induction, $$f_{k+1}\geq \phi^{k-2}+\phi^{(k-1)-2}=\phi^{k-2}+\phi^{k-3}=\phi^{k-3}\left(\phi+1\right)=\phi^{k-3}\phi^{2}=\phi^{k-1}=\phi^{(k+1)-2}.$$
+
+
+This completes the proof by induction$\;_{\square}$.
+
+
+\end{document}

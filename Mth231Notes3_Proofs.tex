@@ -1,0 +1,352 @@
+\documentclass[12pt]{amsart}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{eucal}
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{xypic}
+\usepackage{mathrsfs}
+\xyoption{all}
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+\pagestyle{empty}
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+\setlength{\topmargin}{-0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\footskip}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+\pagestyle{plain}
+%----------------------------------------------------------------
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{exerc}[thm]{Exercise}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%----------------------------------------------------------------
+\begin{document}
+
+\textbf{Math 231 - Discrete Math \hfill{} Notes for Week 3}
+
+\bigskip
+\bigskip
+
+\textbf{Introduction to Proofs}
+
+
+\bigskip
+
+A \underline{mathematical proof} is a logical argument that justifies that a certain proposition is true.  A true proposition requiring proof is often called a \underline{theorem}. \\
+
+ All proofs work with definitions.  All proofs use assumptions, some of which are called\\ \underline{axioms}:  propositions that are assumed to be true, but are never proven.\\
+
+For our first example, let's consider the following proof (with comments):\\
+
+
+\emph{Proposition}:  $\forall x\in\rats$, if $x\neq 0$ then $1/x\in\rats$.  \\
+
+\emph{Proof}:  Let $x\in\rats$.  (Here $``$x" is representing an arbitrary rational number.)\\
+
+Then $\exists p,q\in\ints$ such that $q\neq 0$ and $x=p/q$.  (We use the definition of a rational number.)\\
+
+Assume that $x\neq 0$.  (We assume the hypothesis of the implication.)\\
+
+Since $x\neq 0$ we know that $p\neq 0$.  (We see that $0$ cannot be the numerator of $p/q$.)\\
+
+Then $1/x=q/p\in\rats$ since $p,q\in \ints$ and $p\neq 0$.  (We see that 1/x has the form of a rational.)  \\
+
+That completes the proof$\;_{\square}$\\
+
+The $``$square" at the end of the proof is notation indicating that the argument is complete.\\ \\
+
+Let's look at another example, this time without comments:\\
+
+\emph{Theorem}:  $\forall n\in\nats$, $1+2+\cdots +n=n(n+1)/2$.
+
+\bigskip
+
+\emph{Proof}:  Let $n\in\nats$.  Let $S=1+2+\cdots +(n-1)+n$, which has $n$ terms.   Addition doesn't\\
+
+ depend on the order so $S=n+(n-1)+\cdots +2+1$.  Adding these two equations yields 
+ 
+ $$2S=(n+1)+(n+1)+\cdots +(n+1)+(n+1)=n(n+1),$$
+
+\medskip
+
+since each of the $n$ terms is $n+1$.  So $S=n(n+1)/2$, which completes the proof$\;_{\square}$\\ \\
+
+\newpage
+
+Let's define some basic terminology associated with integers:\\
+
+\begin{enumerate}
+\item  An integer $n$ is \emph{even} if $\exists k\in\ints$ such that $n=2k$.
+
+\bigskip
+
+\item  An integer $n$ is \emph{odd} if $\exists k\in\ints$ such that $n=2k+1$.
+
+\bigskip
+
+\item  An integer $n$ is \underline{divisible by an integer $k$} (or is a \underline{multiple of $k$}) if $\exists m\in\ints$ such that $n=km$.  We call such an integer $k$ a \underline{divisor} of $n$ and say that it \underline{divides} $n$.
+
+\bigskip
+
+\item  An natural number $p$ is \underline{prime} if $p\neq 1$ and the only positive integer divisors of $p$ are $1$ and $p$.
+
+\end{enumerate}
+
+\medskip
+
+For our purposes the following propositions will be treated as axioms:\\
+
+\begin{enumerate}
+
+\item $\forall a,b\in\ints$, $a+b\in\ints$. \\
+
+\item $\forall a,b\in\ints$, $ab\in\ints$. \\
+
+\item $\forall a,b,c\in\ints$, $a(b+c)=ab+ac$.\\
+
+\end{enumerate}
+
+(Note: These also work with $\nats$ in place of $\ints$.)\\ \\
+
+Let's prove the following propositions:\\
+
+\emph{Proposition}:  $\forall m,n\in\ints$, if $m$ and $m+n$ are even then $n$ is even.\\
+
+\emph{Proof}:  Let $m,n\in\ints$.  Assume $m$ and $m+n$ are even.  Then there exist integers $j,k$ such that $m=2k$ and $m+n=2j$.  Then $n=(m+n)-m=2k-2j=2(k-j)$.  Let $\ell=k-j$.  Since $j,k\in\ints$ we know that $\ell=k-j=k+(-j)$ is an integer.  Hence $n$ is even since $n=2\ell$ for some $\ell\in\ints\;_{\square}$ \\
+
+\emph{Proposition}: $\forall k\in\ints$, the sum of two integers divisible by $k$ is divisible by $k$.\\
+
+\emph{Proof}:  Let $k\in\ints$.  Suppose $j,\ell\in\ints$ are each divisible by $k$.  Then there exists integers $m,n$ such that $j=km$ and $\ell=kn$.  Then $j+\ell=km+kn=k(m+n)$.  Since $m+n\in\ints$ it follows that $j+\ell$ is divisible by $k\;_{\square}$\\
+
+
+\newpage
+
+Sometimes $``$scratch work" is needed when developing a proof:  Suppose we are trying to prove that $\forall x,y\in [0,\infty)$, $\displaystyle \sqrt{xy}\leq \frac{x+y}{2}$.\\
+
+One might look at that inequality and wonder how we will be able to make that conclusion.  Often, but not always, playing with the conclusion and $``$working backwards" is a good way to develop ideas about how to prove it.  However, such scratch work must NEVER be taken as a proof, since it begins by assuming the conclusion!\\
+
+Let's see, what is equivalent to $\displaystyle \sqrt{xy}\leq \frac{x+y}{2}$?  We might square both sides to get\\ $\displaystyle xy\leq \frac{x^2+2xy+y^2}{4}$.  By multiplying both sides by $4$ we get $4xy\leq x^2+2xy+y^2$.  By subtracting $4xy$ from both sides we get $0\leq x^2-2xy+y^2$.  What do we know about $x^2-2xy+y^2$?  It's a perfect square!  So now let's write a correct proof:\\
+
+\emph{Proposition}:  $\forall x,y\in [0,\infty)$, $\displaystyle \sqrt{xy}\leq \frac{x+y}{2}$.\\
+
+\emph{Proof}:  Let $x,y$ be non-negative real numbers.  We know that $0\leq (x-y)^2$.  Then\\ $0\leq x^2-2xy+y^2$.  By adding $4xy$ to both sides we get $4xy\leq x^2+2xy+y^2$, which is equivalent to $4xy\leq (x+y)^2$.  Then by taking the square root of both sides we have $2\sqrt{xy}\leq x+y$. Finally, by dividing by $2$ we have $\displaystyle \sqrt{xy}\leq \frac{x+y}{2}\;_{\square}$\\ \\
+
+
+Let's do some examples involving sets!\\
+
+\emph{Theorem}: For all sets $X,Y,Z,$  if $X\cap Y=X\cap Z$ and $X\cup Y=X\cup Z$ then $Y=Z$.\\
+
+
+\emph{Proof}:  Let $X,Y,Z$ be sets.  Assume $X\cap Y=X\cap Z$ and $X\cup Y=X\cup Z$.  We need to show that $Y$ and $Z$ are subsets of each other.  If either is empty set then it is a subset of the other.  So assume both are non-empty.  Let $y\in Y$.  Then $y\in X\cup Y$.  So $y\in X\cup Z$.  That means $y\in X$ or $y\in Z$.  So we have two cases, $y\in X$ or $y\in Z$.  Suppose $y\in X$.  Then $y\in X\cap Y$.  So $y\in X\cap Z$.  Then $y\in Z$.  Thus in both cases $y\in Z$.  Hence $Y\subseteq Z$.  Reversing the argument (by swapping the roles of $Y$ and $Z$) shows $Z\subseteq Y$.  Therefore $Y=Z\mbox{ }_{\square}$\\
+
+\emph{Theorem}:  For all sets $S,T$, if $S\cap \overline{T}=\emptyset$ then $S\subseteq T$.\\
+
+\emph{Proof}:  Let $S,T$ be sets.  Assume $S\cap \overline{T}=\emptyset$.  If $S=\emptyset$ then $S\subseteq T$.  Suppose $S\neq \emptyset$.  Let $s\in S$.  Since $S\cap \overline{T}=\emptyset$ it follows that $s\not\in \overline{T}$ as $S$ and $\overline{T}$ are disjoint.  Hence $s\in T$.  Therefore $S\subseteq T\;_{\square}$\\
+
+\emph{Theorem}:  For all sets $S,T$, $\powerset{(S\cap T)}\subseteq \powerset{(S)}\cap \powerset{(T)}$.\\
+
+\emph{Proof}:  Let $S,T$ be sets.  Let $A\in \powerset{(S\cap T)}$.  Then $A\subseteq S\cap T$.  So $A\subseteq S$ and $A\subseteq T$.  Thus $A\in \powerset{(S)}$ and $A\in \powerset{(T)}$, proving that $A\in \powerset{(S)}\cap \powerset{(T)}$.  Therefore, $\powerset{(S\cap T)}\subseteq \powerset{(S)}\cap \powerset{(T)}\;_{\square}$
+
+\newpage
+
+So far all the proof examples we have done are examples of what are called \emph{direct proofs}.  A direct proof is a mathematical proof of a proposition, without converting it to a different, but logically equivalent proposition.  An \emph{indirect proof} is a proof of a proposition by proving a different, but logically equivalent proposition instead.
+
+\bigskip
+
+There are two types (let $p,q$ represent propositions below):
+
+\begin{enumerate}
+
+\item[(i)] A \emph{proof by contrapositive} shows that a conditional proposition $p\rightarrow q$ is true by showing that the logically equivalent contrapositive $\lnot q\rightarrow \lnot p$ is true.
+
+\bigskip
+
+\item[(ii)]  A \emph{proof by contradiction} shows that a proposition $p$ is true by showing that\\ $\lnot p\rightarrow (q\wedge \lnot q)$ is true.
+
+\medskip
+
+Note:  The proposition $q\wedge \lnot q$ is always false.  Recall that such a proposition is called a contradiction. 
+
+\bigskip
+
+\emph{Exercise left for the reader:}  Show $p\equiv \lnot p\Rightarrow (q\wedge \lnot q)$ by using a truth table.\\ \\
+
+\end{enumerate}
+
+Here is a proof by contrapositive:\\
+
+
+\emph{Theorem}:  $\forall a\in\reals^{+}$, $\forall n\in\nats$, if $a^{n}\not\in \rats$ then $a\not\in\rats$.\\
+
+
+\emph{Proof}:  Let $a\in\reals^{+}$ and $n\in\nats$.  We will prove the contrapositive of $a^{n}\not\in \rats\rightarrow a\not\in\rats$:  $$a\in\rats\rightarrow a^{n}\in\rats.$$
+
+\medskip
+
+Suppose $a\in\rats$.  Then $\exists p,q\in\ints$ with $q\neq 0$ such that $\displaystyle a=\frac{p}{q}$.  From this we get $$a^{n}=\left(\frac{p}{q}\right)^{n}=\frac{p^{n}}{q^{n}}.$$
+
+\medskip
+
+Since $p^{n},q^{n}\in\ints$ and $q^{n}\neq 0$ as $q\neq 0$ it follows that $a^{n}\in\rats$, completing the proof by contrapositive$\;_{\square}$\\ \\
+
+Here is another proof by contrapositive:\\
+
+
+\emph{Theorem}:  $\forall a\in\ints$, if $a^{2}$ is even then $a$ is even.
+
+
+\bigskip
+
+\emph{Proof}:  Let $a\in\ints$.  Assume $a$ is not even, which  means it is odd (since the even and odd integers form a partition of $\ints$).  Then $a=2k+1$ for some $k\in\ints$.  Then $a^{2}=2(2k^{2}+2k)+1$ is odd since $2k^{2}+2k\in\ints$.  So $a^{2}$ is not even.  We have proved that if $a$ is not even then $a^{2}$ is not even.  This completes the proof by contrapositive$\mbox{ }_{\square}$ \\ \\
+
+A classic example of a proof by contradiction:\\
+
+
+\emph{Theorem}:  $\sqrt{2}\not\in\rats$.\\
+
+
+\emph{Proof}:  Suppose that $\sqrt{2}\in\rats$.  Then we can write $\sqrt{2}=\dfrac{p}{q}$ where $p,q\in\ints$ and $q\neq 0$.  We may assume, and want to assume, that $p,q$ are not both even (if they were we could repeatedly cancel $2$ until they weren't both even).
+
+\medskip
+
+Then $p=q\sqrt{2}$ and hence $p^{2}=2q^{2}$.  Then $p^{2}$ is even.  That means $p$ is even, and thus $p=2k$ for some $k\in\ints$.  But then $\displaystyle p^{2}=2q^{2}$ becomes $4k^{2}=2q^{2}$ which reduces to $2k^{2}=q^{2}$.
+
+\bigskip
+
+Then $q^{2}$ is even.  That means $q$ is even.  This contradicts that $p,q$ are not both even.  Hence $\sqrt{2}\not\in\rats\;_{\square}$\\ \\
+
+
+Note:  Any proof by contrapositive of $p\rightarrow q$ can always be reformatted into a proof by contradiction by assuming $p$ and $\lnot q$ instead of just $\lnot q$.\\ \\
+
+
+Let's do another couple examples of a proofs by contradiction:\\
+
+
+\emph{Theorem}:  Suppose $15$ non-negative integers sum to $100$.  Then at least two must be the same.\\
+
+\emph{Proof}:  Suppose otherwise.  That is, suppose there exists $15$ distinct non-negative integers, arranged in increasing order $a_{1}<a_{2}<\cdots<a_{15}$ whose sum is $100$.  Then $a_{i}\geq i-1$ and thus $$ 100= \sum_{i=1}^{15}a_{i}\geq \sum_{i=1}^{15}(i-1)=\sum_{k=1}^{14}k=(14)(15)/2=105.$$ This contradiction completes the proof$\mbox{ }_{\square}$\\ \\
+
+
+\emph{Proposition}:  The only divisors of $1$ are $1$ and $-1$.\\
+
+\emph{Proof}:  $1=(1)(1)=(-1)(-1)$, so $1,-1$ are divisors of $1$.  Suppose $k\in\ints$ is a divisor of $1$ and $k\not\in \{-1,1\}$.  Then $\exists m\in\ints$ such that $1=km$.  Then either $k,m$ are both positive or are both negative.  If they are both positive then $k\geq 2$, $m\geq 1$ and hence $1=km\geq 2$.  If they are both negative then $-k\geq 2$, $-m\geq 1$ and hence $1=km=(-k)(-m)\geq 2$.  Either way, we are done by contradiction $\;_{\square}$\\
+
+
+
+\emph{Proposition}:  $\forall n\in\ints$, $\forall p\in\nats$, if $p$ is prime and $p$ divides $n$ then $p$ does not divide $n+1$.\\
+
+\emph{Proof}:  Let $n\in\ints$ and $p\in\nats$.  Suppose $p$ is prime, $p$ divides $n$ and to yield a contradiction, $p$ divides $n+1$.  So there exists integers $j,k$ such that $n=pj$ and $n+1=pk$.  Then $1=(n+1)-1=pk-pj=p(k-j)$.  That implies that $p$ divides $1$ since $k-j$ is an integer.  But the only divisors of $1$ are $-1$ and $1$, neither of which are prime.  That contradicts that $p$ is prime$\;_{\square}$
+
+\newpage
+
+There are all sorts of errors that can happen when writing a proof.  The following are some common errors that occur frequently:\\
+
+\begin{enumerate}
+
+\item  Undeclared variables \\
+
+For example, suppose you are reading a proof and you encounter $``$Since $x$ is rational we know that $x=p/q$" but no further information about what $p,q$ are is given.  It is not appropriate to assume someone reading your proof is supposed to fill in the details that $p,q\in\ints$ and $q\neq 0$.\\ 
+
+\item Variables playing more than one role\\
+
+For example, suppose you are reading a proof and you encounter $``$Since $x\in\ints$ is even and $y\in\ints$ is odd there exists $k\in\ints$ such that $x=2k$ and $y=2k+1$."  The problem here is that using $``k$" for both means that $y=x+1$, which decreases the scope of the argument.  It won't apply to even and odd numbers in general, but only to ones where the odd number is consecutively after the even number.\\
+
+\item Circular reasoning (also known as $``$begging the question")\\
+
+Here is an example: $``$Whenever $x^2$ is even, it would be divisible by $4$.  So $x$ would be divisible by $2$.  Thus $x$ is even, and therefore, $x^2$ is even."  Basically this argument consists of $x^2$ is even because $x^2$ is even...\\
+
+\item Proving the converse of what you are trying to show\\  
+
+The converse is NOT logically equivalent, so proving the converse does not prove the original.\\
+
+\item Using an example to justify a general statement\\
+
+For example, suppose you read $``$Since $1$ is odd, $2$ is even and $1+2=3$ is odd we see that the sum of an odd number and even number is odd."  This is NOT a proof of the general case.  Examples would never be sufficient to prove that the sum of an odd integer and an even integer is odd.\\
+
+\item Algebraic errors\\
+
+Sometimes the issue with a proof is simply an algebraic error.  For example, suppose you encounter as part of a proof $``(x+y)^2=x^2+y^2$, so ..."  At this point the proof is no longer valid since $(x+y)^2\neq x^2+y^2$.
+
+\end{enumerate}
+
+\newpage
+
+A \emph{proof by cases} shows a statement is true by considering different cases on the domain, that together comprises the entire domain.\\
+
+\emph{Proposition}:  $\forall n\in\ints$, $n^2+n$ is even.\\
+
+\emph{Proof}:  Let $n\in\ints$.  Suppose $n$ is even.  Then for some $k\in\ints$, $n=2k$.  Hence $n^2+n=n(n+1)=2k(2k+1)=2\ell$ where $\ell=k(2k+1)\in\ints$.  Suppose $n$ is not even, hence odd.  Then for some $k\in\ints$, $n=2k+1$.  Hence $n^2+n=n(n+1)=(2k+1)[(2k+1)+1]=(2k+1)(2k+2)=2(2k+1)(k+1)=2\ell$ where $\ell=(2k+1)(k+1)\in\ints$.  So in either case, $n^2+n$ is even$\;_{\square}$\\ \\
+
+
+An \underline{existence proof} proves the existence of a mathematical object.\\
+
+An existence proof is \underline{constructive} if it explicitly exhibits such an object.  Otherwise it is called \underline{nonconstructive}.\\
+
+Here is an example of a constructive existence proof:\\
+
+
+\emph{Theorem}:  $\exists n\in\nats$ such that $n\geq 1$ and $2^n -1$ is not prime.
+
+\bigskip
+
+
+\emph{Proof}:  Consider $n=4$.  $2^4 -1=15$ which is not prime since $15=5(3)\;_{\square}$\\
+
+
+Here is an example of an non-constructive existence proof:\\
+
+
+\emph{Theorem}:  There exists two irrational real numbers $a$ and $b$ such that $a^{b}$ is rational.\\
+
+\emph{Proof}:  Let $x=y=\sqrt{2}$.  If $x^{y}$ is rational then we are done since $\sqrt{2}$ is irrational.  Otherwise, $x^{y}$ is irrational.  Then by setting $a=x^{y}$ and $b=\sqrt{2}$ we have that $a^{b}=(x^{y})^{b}=x^{by}=(\sqrt{2})^{\sqrt{2}\sqrt{2}}=(\sqrt{2})^{2}=2$, which is rational$\;_{\square}$\\
+
+
+Do you see why this proof is non-constructive?
+
+
+\newpage
+
+A \underline{uniqueness proof} for a mathematical object that exists, shows that there is only one such object.  We often use $\exists !$ as a quantifier to denote that there exists a unique object.  For example, consider the statement $\exists! n\in\nats$, $n^{2}=9$.\\
+
+
+\emph{Theorem}:  $\exists !z\in\ints$ such that $\forall n\in\ints$, $n+z=z+n=n$.\\
+
+\emph{Proof}:  Since $n+0=0+n=n$ for all integers $n$ we see that such an element exists.  Suppose $z\in\ints$ has the property that $n+z=z+n=n$ for all integers $n$.  Since $0$ has this property and $z\in\ints$ it follows that $z+0=z$.  Since $z$ has this property and $0\in\ints$ it follows that $z+0=0$.  Hence $0=z+0=z$, showing that $0$ is the unique integer with this property$\;_{\square}$ \\
+
+As a final example for these notes, let's prove the following theorem using the Well-Ordering Principle:  Any non-empty subset of non-negative integers has a smallest element.\\
+
+\emph{Quotient-Remainder Theorem:}  If $d$ and $n$ are integers, $d>0$, then there exist unique integers $q$ and $r$ such that $n=dq+r$ and $0\leq r<d$.\\
+
+
+\emph{Proof}:  Let $X=\{n-dk|n-dk\geq 0, k\in\ints \}$.  By selecting $k\in\ints$ so that $k<\frac{n}{d}$ we have $dk<n$ and therefore, $n-dk\in X$.  Thus $X$ is nonempty.  By the Well-Ordering Principle, we may let $r\in X$ be the smallest element.  In particular $r\geq 0$.  Label by $q$ the integer that satisfies $n-dq=r$.  Then $n=dq+r$.  To yield a contradiction suppose $r\geq d$.  Then $r-d\geq 0$ and hence, $n-d(q+1)=(n-dq)-d=r-d\in X$ and $r-d<r$.  But this contradicts that $r$ is the smallest element of $X$.  Thus $0\leq r<d$.  This completes the existence part of the proof.\\
+
+Let $r_{1},r_{2},q_{1},q_{2}\in \ints$.  Suppose $n=dq_{1}+r_{1}$ with $0\leq r_{1}<d$ and $n=dq_{2}+r_{2}$ with $0\leq r_{2}<d$.  Then $0=n-n=d(q_{1}-q_{2})+(r_{1}-r_{2})$.  Then $d(q_{1}-q_{2})=r_{2}-r_{1}$.  But then $d$ divides $r_{2}-r_{1}$ and since $0\leq r_{1},r_{2}<d$, we have $-d<r_{2}-r_{1}<d$, which implies $r_2-r_1=0$.  Thus $r_{1}=r_{2}$.  Then $d(q_{1}-q_{2})=0\rightarrow q_{1}=q_{2}$.  That completes the uniqueness part of the proof$\;\square$
+
+
+
+
+
+
+
+\end{document}
