@@ -124,21 +124,14 @@ $$5^{5(k+1)+1}+4^{5(k+1)+2}+3^{5(k+1)} = 5^{(5k+1)+5}+4^{(5k+2)+5}+3^{5k+5}$$
     \\
     &=& 3124\cdot 5^{5k+1}+1023\cdot 4^{5k+2}+242\cdot 3^{5k}+(5^{5k+1}+4^{5k+2}+3^{5k}) \\
     \\
-    &=& 3124\cdot 5^{5k+1}+1023\cdot 4^{5k+2}+242\cdot 3^{5k}+11j \mbox{ (by the inductive hypothesis)} \\
+    &=& 3124\cdot 5^{5k+1}+1023\cdot 4^{5k+2}+242\cdot 3^{5k}+11j \hspace{1em} \mbox{(by the inductive hypothesis)} \\
     \\
-    &=& 3124\cdot 5^{5k+1}+1023\cdot 4^{5k+2}+242\cdot 3^{5k}+11j \mbox{ (by the inductive hypothesis)} \\
+    &=& 11(248\cdot 5^{5k+1}+93\cdot 4^{5k+2}+22\cdot 3^{5k}+j) \\
     \\
-    &=& 2\cdot 3^{k+1}+(-2)^{k+1}.
+    &=& 11z \mbox{, where } z\in\ints \mbox{ since it is the sum of products of integers. } \\
 \end{eqnarray*}
-    
-This completes the proof by induction$\;_{\square}$\\
-
-
-feedback:
-To prove the proposition, by induction. We can see that it works for n = 0. 
-Then if k is…and if it works for k then it works with k+1. 
-“Substituted the inductive hypothesis”. Why it is an integer. Sum of products of integers. Use more words! Say conclusion.
-
+Since we have proved the basis step and the inductive step, we conclude that for all integers $n\geq 0$, $5^{5n+1}+4^{5n+2}+3^{5n}$ is a multiple of $11$. 
+That completes the proof by induction$\;_{\square}$\\
 
 \newpage
 
@@ -152,11 +145,15 @@ Hint:  Consider forming committees of $n$ people (with a chairperson) that are c
 \bigskip
 \bigskip
 
-THIS is my proof!
+\emph{Proof}: Let $A$ and $B$ be disjoint sets of $n$ distinct elements where $n\geq 1$ is an integer.
+The number of ways to form subsets of $n$ elements where at least $1$ element must be from set $A$ is $nC(2n-1,n-1)$ since there are $n$ ways to choose $1$ element from $A$ and $2n-1$ elements remaining to choose $n-1$ elements.
 
+Another way to count this is to count the number that involve $k$ elements from set $A$ and $n-k$ elements from set $B$, and sum over the possible values of $k$, which are $k=1$ to $k=n$.
 
-From n oregonians, choose 1 oregoninans, from those k choose 1 to have be the chair
+There are $C(n, k)$ ways to select $k$ elements from set $A$, $C(n, n-k)$ ways to select $n-k$ elements from set $B$, and this is multiplied by $k$ to count the permutations of which element was the $1$ required element from set $A$, for $k=1, 2,..., n$. \\
+So the number of ways is $\displaystyle \sum_{k=1}^n kC(n,k)C(n, n-k)$.
 
-
+We know that $C(n,k)=C(n,n-k)$ because the number of ways to choose $k$ elements from $n$ objects is the same as choosing the $n-k$ elements to be left out.
+Therefore, the summation can be written as $\displaystyle \sum_{k=1}^n k(C(n,k))^2 \mbox{, which we have shown to be equal to } nC(2n-1,n-1)$. $\;_{\square}$ \\
 
 \end{document}

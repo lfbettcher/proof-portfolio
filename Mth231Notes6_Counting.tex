@@ -1,0 +1,240 @@
+\documentclass[12pt]{amsart}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{eucal}
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{xypic}
+\usepackage{mathrsfs}
+\xyoption{all}
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+\pagestyle{empty}
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+\setlength{\topmargin}{-0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\footskip}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+\pagestyle{plain}
+%----------------------------------------------------------------
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{exerc}[thm]{Exercise}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%----------------------------------------------------------------
+\begin{document}
+
+\textbf{Math 231 - Discrete Math \hfill{} Notes for Week 6}
+
+\bigskip
+\bigskip
+
+\textbf{Counting}
+
+
+\bigskip
+
+
+ We begin by exploring the basic principles of counting, called the $``$Sum Rule" and $``$Product Rule."\\
+
+SUM RULE:  If there are $m$ ways to do something and $n$ ways to do another thing, but not both things can be done, then the number of ways to do one thing or the other is $m+n$.\\
+
+The Sum Rule is also known as $``$the Rule of the Sum" or $``$the Addition Principle."\\
+
+Consider the following simple example.  Suppose Keisha lives between Corvallis and Albany (in Oregon) and plans to go out for dinner.  She has identified $3$ restaurants in Corvallis that interest her and $4$ restaurants in Albany that interest her.  How many options does Keisha have if she goes out for dinner in Corvallis or Albany at a restaurant that interests her?  Well, she either goes to Corvallis for dinner or goes to Albany for dinner, but not both.  So the answer is $3+4=7$ based on the Sum Rule.\\ \\
+
+The Sum Rule can be generalized:  Let $S$ be a finite set of outcomes that we wish to count; that is, we wish to determine $|S|$.  If $\{S_1,S_2,...,S_k\}$ forms a partition of $S$ (non-empty sets that are pairwise disjoint whose union is $S$) then $|S|=|S_1|+|S_2|+\cdots |S_k|$.\\
+
+Let's look at a nice example of using the generalized Sum Rule.  Bethany wants choose a movie to watch from her various queues within $3$ streaming services.  On one streaming service, Bethany has $2$ movies on her queue.  On a second streaming service, she has $5$ movies on her queue.  On a third streaming service, she has $6$ movies on her queue.  How many options does Bethany have?  Well, she will watch just one movie from just one of the three streaming services.  So the answer is $2+5+6=13$.\\ \\
+
+PRODUCT RULE: If there $m$ ways to do something followed by $n$ ways to do another thing then there are $mn$ ways to do the first thing followed by the second thing (both).\\
+
+The Product Rule is also known as $``$the Rule of the Product" or $``$the Multiplication Principle."\\
+
+Consider the following simple example.  A certain restaurant has a menu with $4$ appetizers and $5$ entrees.  In how many ways can Juan choose an appetizer and an entree?  Well, he can choose an appetizer in 4 ways, followed by choosing an entree in 5 ways.  So the answer is $(4)(5)=20$ based on the Product Rule.
+
+\newpage
+
+The Product Rule can be generalized:  Let $S_i$ be the finite set of options at step $i$ of a multi-step process.  The number of ways to complete steps $1,2,...,k$ is $|S_1||S_2|\cdots |S_k|$ (this is the cardinality of the set of $k$-tuples $S_1\times S_2\times\cdots \times S_k$).\\
+
+
+Let's look at a nice example of using the generalized Product Rule.  How many positive integer divisors does $300$ have?  First we factor $300$ into primes:  $300=2^2 3^1 5^2$.  From this we deduce that a positive integer divisor of $300$ looks like $2^i 3^j 5^k$ where $i\in\{0,1,2\}$, $j\in\{0,1\}$ and $k\in\{0,1,2\}$.  The number of choices for the exponent $i$ is $3$, the number of choices for the exponent $j$ is $2$ and the number of choices for the exponent $k$ is $3$.  Since we can select an $i$, followed by a $j$ and then followed by a $k$, the Product Rule tells us that there are $3(2)(3)=18$ positive integer divisors of $300$.\\
+
+Suppose we are interested in determining the number of $5$-digit strings (for example, $01192$ is a $5$-digit string).  Well, there are $10$ choices for each of the $5$ positions.  So by the Product Rule, the number of $5$-digit strings is $10^5=100,000$. \\
+
+What if we wanted to know which of these $100,000$ strings form $5$-digit numbers?  Just consider that $01192$ is a $5$-digit string, but is not a $5$-digit number as the digit in the $10^5$ place is $0$.  A $5$-digit number has to begin with a non-zero digit in the $10^5$ place, but may have zeros in the other positions.  So by the Product Rule, the answer is $9(10^4)=90,000$.\\
+
+Let's do that involves various steps using the Product Rule.  How many ways can the letters of the word \emph{EXPLAIN} be rearranged such that the letters $E,X,P$ do not appear (in any order) in $3$ consecutive positions?  The total number of ways to rearrange the letters is $7!$.  We will subtract away the quantity of those that do have $E,X,P$ in $3$ consecutive positions (in any order).  First pretend $``$EXP" were just one letter; then consider the possible rearrangements of these three letters.  The number of rearrangements with $``$EXP" acting like one letter is $5!$.  Then the number of ways to rearrange the letter $E,X,P$ amongst the $3$ consecutive positions is $3!$.  So the number of the rearrangements where $E,X,P$ do appear in $3$ consecutive positions is $(5!)(3!)$.  So the answer is $7!-(5!)(3!)=4,320$.
+
+
+
+
+The Product Rule gives us a nice proof regarding the cardinality of the power set of a finite set:\\
+
+\emph{Proposition} For any positive integer $n$, a set of $n$ elements has $2^{n}$ subsets.\\
+
+\emph{Proof}:   Let $S=\{x_1,x_2,...,x_n\}$ be a set of $n$ elements.  Every subset of $S$ can be formed by either including or excluding $x_i$ for each $i=1,2,...,n$.  So there are two choices for each element of the set $S$.  By the Product Rule that means the number of subsets is $(2)(2)(2)\cdots (2)=2^n\;_{\square}$\\ \\
+
+For an explicit example, the power set of $S=\{1,2,3,4,5,6\}$ would have $2^6=64$ elements (subsets of $S$).  You would not want to count that by brute force (listing out all $64$ subsets).
+
+
+\newpage
+
+Next we define the concepts of $``$permutations" and $``$combinations."\\
+
+Let $k,n$ be non-negative integers.  A $k$-\underline{permutation} of $n$ distinct objects is an ordered list of $k$ of the $n$ objects without repetition.    For example, below are all $2$-permutations of the four numbers $1,2,3,4$ separated by semi-colons.\\
+
+$1,2;\;2,1;\;1,3;\;3,1;\;1,4;\;4,1;\;2,3;\;3,2;\;2,4;\;4,2;\;3,4;\;4,3$\\ \\
+
+
+The number of $k$-permutations of $n$ objects is denoted $P(n,k)$ or ${}_n P_k$.  By the Product Rule, $$P(n,k)=n(n-1)\cdot \cdots \cdot(n-k+1)=\frac{n!}{(n-k)!},$$
+
+since there are $n$ choices for the first term of the list, followed by $(n-1)$ choices for the second term of the list, and so on, until finally there are $n-(k-1)$ choices for the $k$th and final term of the list (excluding the $k-1$ terms previously selected).\\
+
+For instance, $P(4,2)=4!/2!=12$, matching the number of $2$-permutations written above.\\ \\
+
+Consider that a traditional starting lineup in basketball consists of a point guard, a shooting guard, a power forward, a small forward, and a center.  How many traditional lineups can be formed from a $12$ person roster if any player can play any position?  It's an ordered list of $5$ of the $12$; there are $P(12,5)$ such lineups, which would be $(12)(11)(10)(9)(8)=95,040$.\\
+
+
+
+Note:  You are encouraged to leave your answers as $``$P(n,k)" unless otherwise directed.\\
+
+A $k$-\underline{combination} of $n$ distinct objects is an unordered collection of $k$ of the $n$ objects without repetition (equivalently a $k$-element subset of a set of $n$ elements).  For example, below are all $2$-combinations of the four numbers $1,2,3,4$.\\
+
+
+$\{1,2\},\;\{1,3\},\;\{1,4\},\;\{2,3\},\;\{2,4\},\;\{3,4\}$\\ \\
+
+
+So, the number of $k$-element subsets of an $n$-element set is equal to the number of $k$-combinations (aka selections) taken from $n$ objects.  This number is denoted $C(n,k)$ or ${}_n C_k$ or $\displaystyle \left(\begin{array}{c}n\\
+k\end{array}\right)$.  It's often read $``n$ choose $k$."  These numbers are called \underline{binomial coefficients} for reasons we will see later.  From the above we see that $C(4,2)=6$.
+
+\newpage
+
+Let's derive a formula for $C(n,k)$.  A $k$-permutation of $n$ distinct objects can be uniquely determined by the following two step process:  Select a $k$-combination from the $n$ objects, and then put these $k$ objects in a particular order.  The number of $k$-combinations is $C(n,k)$ and the number of ways to put the $k$ objects selected into an order is $P(k,k)=k!$, so by the Product Rule,  $$P(n,k)=C(n,k)\cdot k!.$$
+
+
+Hence $C(n,k)=\dfrac{P(n,k)}{k!}=\dfrac{n!}{k!(n-k)!}.$\\
+
+Indeed, $C(4,2)=\dfrac{4!}{2!(4-2)!}=\dfrac{4!}{4}=6$.\\
+
+Suppose Jackie has a coupon for a $3$-topping large pizza from a local pizzeria.  How many choices does Jackie have for his $3$-topping large pizza, given that the pizzeria has $10$ total topping choices to choose from?   The answer is $10$ choose $3$, which is  $C(10,3)=\dfrac{(10)(9)(8)}{(3)(2)}=120$ by the formula above.\\
+
+How many increasing sequences of $5$ digits are there?  For example, $0,2,3,6,9$ is an increasing sequence of $5$ digits.  The key idea is to understand that any $5$-combination of the $10$ digits forms exactly $1$ increasing sequence.  So the answer is $C(10,5)$.  \\
+
+How many $4$-digit strings have exactly $3$ ones?  There are $C(4,3)=4$ locations in which the ones can occur, and $9$ choices for the digit not equal to $1$.  So by the Product Rule there are $(4)(9)=36$ such strings.\\
+
+Suppose $5$ donkeys and $7$ horses are to be put into a $12$ pens arranged with one adjacent to the next in a line.  In how many ways can these animals be put into these pens such that no two donkeys end up in adjacent pens?  First we ignore the donkeys!  The number of ways in which the horses can be arranged into a sequence is $7!$.  Now the only possible positions for the donkeys to occupy are before the first horse, between any two consecutive horses, or after the last horse.  That makes for $8$ positions and we choose $5$ to arrange the donkeys into, which can occur in $C(8,5)5!=P(8,5)$ ways.  Now we have a sequence of $5$ donkeys and $7$ horses with no two donkeys in adjacent spots.  So the answer is $7! P(8,5)$ by the Product Rule.\\
+
+
+\emph{Proposition}:  Suppose $k,n$ are non-negative integers and $k\leq n$.  Then $C(n,k)=C(n,n-k)$.\\
+
+\emph{Proof}:  One can prove this by just using the formula to show that both sides are the same expression.  Let's do something entirely different.  Let's count $k$-combinations of $n$ distinct objects.  One one hand we know it is $C(n,k)$ since that is the number of ways to choose $k$-elements from $n$ distinct objects.  On the other hand, it is $C(n,n-k)$ since that is the number of ways as choosing which $n-k$ elements are to be left out of a $k$-combination.  Therefore $C(n,k)=C(n,n-k)\;_{\square}$ \\ \\
+
+Such a proof as above, where we show that both sides of an equation $``$count" the same set of outcomes, is called a $``$combinatorial proof."
+
+\newpage
+
+\emph{Proposition}:  For any integer $n\geq 2$, and for any positive integer $k<n$ we have \\$C(n,k)=C(n-1,k-1)+C(n-1,k)$.\\
+
+\emph{Proof}:  Let's construct a combinatorial proof.  Let $S$ be a set of $n\geq 2$ objects and $x\in S$.  Let $T$ be the set of $k$-combinations (hence subsets) of the $n$ objects in $S$.  Thus $|T|=C(n,k)$.  We can partition $T$ into two subsets $A$ and $B$, where $A$ are the $k$-combinations that contain $x$ and $B$ are the $k$-combinations that do not contain $x$.  $A$ and $B$ are non-empty, disjoint and have union of $T$.  So $|T|=|A|+|B|$.  The cardinality of $A$ is $C(n-1,k-1)$ since to form a $k$-combination containing $x$, $k-1$ more elements must be selected from the $n-1$ elements left in $S\setminus\{x\}$.  The cardinality of $B$ is $C(n-1,k)$ since to form a $k$-combination not containing $x$, all $k$ elements must be selected from the $n-1$ elements left in $S\setminus\{x\}$.  That completes the proof$\mbox{ }_{\square}$ \\ \\
+
+
+\emph{Pascal's triangle}:
+
+\medskip
+
+Begin with a triangle of $3$ ones in two rows.  The rows below extend the triangle and are generated by putting $1$ on each end and in other locations adding the two entries directly above as follows:
+
+$$1$$
+$$1\mbox{  }1$$
+$$1\mbox{  }2\mbox{  }1$$
+$$1\mbox{  }3\mbox{  }3\mbox{ }1$$
+$$1\mbox{  }4\mbox{  }6\mbox{  }4\mbox{  }1$$
+$$.$$
+$$.$$
+$$.$$
+
+
+
+We call the top row the $O$th row and it's $C(0,0)=1$.  The next row is the $1$st row and it's $C(1,0)\mbox{ }C(1,1)$.  Now let $n\geq 2$ be an integer.  Since $C(n,0)=C(n,n)=1$ it follows by the previous proposition that the $n$th row of the triangle is:
+
+
+$$C(n,0)\mbox{ } C(n,1)\mbox{ } C(n,2)\mbox{ }...\mbox{ }C(n,n-2)\mbox{ } C(n,n-1)\mbox{ } C(n,n)$$
+
+
+Pascal's triangle is useful for expanding powers of binomials, as the Binomial Theorem on the next page describes!
+
+\newpage
+
+\textbf{Binomial Theorem}:  If $x,y\in \reals$ and $n\in \nats$ then $$(x+y)^{n}=\sum_{k=0}^{n}{C(n,k)\, x^{n-k}y^{k}}.$$
+
+\emph{Proof}:  We shall return to the method of induction.  Suppose $n=1$.  Then $(x+y)^{n}=x+y$ and $\displaystyle \sum_{k=0}^{n}{C(n,k)\cdot x^{n-k}y^{k}}=C(1,0)xy^{0}+C(1,1)x^{0}y=x+y$.  This establishes the base case.
+
+\medskip
+
+Let $n\in\nats$.  Assume $\displaystyle (x+y)^{n}=\sum_{k=0}^{n}{C(n,k)\cdot x^{n-k}y^{k}}$.  Then
+
+\begin{eqnarray*}
+(x+y)^{n+1} &=& (x+y)^{n}(x+y) \\
+\\
+&=& \left(\sum_{k=0}^{n}{C(n,k)\cdot x^{n-k}y^{k}}\right)\cdot (x+y)  \\
+\\
+&=& \sum_{k=0}^{n}{C(n,k) \left(x^{n-k+1}y^{k}+x^{n-k}y^{k+1}\right)} \\
+\\
+&=& x^{n+1}+x^{n}y+\left(\sum_{k=1}^{n-1}{C(n,k)x^{n-k+1}y^{k}}+\sum_{k=1}^{n-1}{C(n,k)x^{n-k}y^{k+1}}\right)+xy^{n}+y^{n+1}  \\
+\\
+&=& x^{n+1}+\left(\sum_{i=1}^{n}{C(n,i)x^{n-i+1}y^{i}}+\sum_{j=0}^{n-1}{C(n,j)x^{n-j}y^{j+1}}\right)+y^{n+1} \\
+\\
+&=& x^{n+1}+\left(\sum_{i=1}^{n}{C(n,i)x^{n-i+1}y^{i}}+\sum_{i=1}^{n}{C(n,i-1)x^{n-i+1}y^{i}}\right)+y^{n+1}  \\
+\\
+&=& x^{n+1}+\left(\sum_{i=1}^{n}{\left[C(n,i)+C(n,i-1)\right]x^{n+1-i}y^{i}}\right)+y^{n+1}\\
+\\
+&=& x^{n+1}+\left(\sum_{i=1}^{n}{C(n+1,i)x^{n+1-i}y^{i}}\right)+y^{n+1} \\
+\\
+&=&\sum_{k=0}^{n+1}{C(n+1,k)x^{n+1-k}y^{k}}.\end{eqnarray*}
+
+The second-to-last step uses that $C(n+1,i)=C(n,i)+C(n,i-1)$ for $i=1,2,...,n$ which was established by a previous proposition$\mbox{ }_{\square}$\\
+
+Note:  It takes some time to digest all the steps above.  You will NOT be asked to reproduce this proof!\\
+
+
+\newpage
+
+Let's apply the binomial theorem to find the coefficient of $a^{4}b^{3}$ in $(2a-b)^{7}$.\\
+
+Using $x=2a$, $y=-b$ and selecting the term of the sum corresponding to $k=3$ we get $C(7,3)(2a)^{4}(-b)^{3}=35(-16a^{4}b^{3})=-560a^{4}b^{3}$.  So the coefficient is $-560$.\\ \\
+
+\emph{Proposition}:  For any $n\in\nats$, $n\geq 2$, $\displaystyle \sum_{i\geq 0}C(n,2i)=\sum_{i\geq 0}C(n,2i+1)$ where the sums stop when $i=n/2$ if $n$ is even and $i=(n-1)/2$ if $n$ is odd.\\
+
+\emph{Proof}:  Let $n\in\nats$, $n\geq 2$.  Let's use the Binomial Theorem with $x=1$ and $y=-1$:  $$(1+(-1))^n=\sum_{k=0}^{n}{C(n,k)\, (-1)^{k}}.$$
+
+Then $$0=C(n,0)-C(n,1)+C(n,2)-C(n,3)+\cdots +(-1)^n C(n,n),$$
+
+which alternates in sign.  Hence $\displaystyle \sum_{i\geq 0} C(n,2i)=\sum_{i\geq 0}C(n,2i+1)$ where the sums stop when $i=n/2$ if $n$ is even and $i=(n-1)/2$ if $n$ is odd $\;_{\square}$ \\ \\
+
+
+
+
+
+
+
+\end{document}
