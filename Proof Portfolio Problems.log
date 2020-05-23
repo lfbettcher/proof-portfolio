@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  22 MAY 2020 15:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  22 MAY 2020 17:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -309,27 +309,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--61
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--84
+Underfull \hbox (badness 10000) in paragraph at lines 70--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
 
  []
 
 [1{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 99--101
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 132--135
+Underfull \hbox (badness 10000) in paragraph at lines 139--143
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--158
+Underfull \hbox (badness 10000) in paragraph at lines 161--165
 
  []
 
@@ -337,13 +352,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--158
 Here is how much of TeX's memory you used:
  5893 strings out of 480608
  73165 string characters out of 5903631
- 363696 words of memory out of 5000000
+ 362696 words of memory out of 5000000
  21510 multiletter control sequences out of 15000+600000
  544525 words of font info for 82 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  38i,6n,33p,3267b,177s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.pdf" (4 pages, 128111 bytes).
+Output written on "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.pdf" (4 pages, 128132 bytes).
 PDF statistics:
  73 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream

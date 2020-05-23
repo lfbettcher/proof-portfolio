@@ -69,16 +69,21 @@ Hints:  You may use the following without justification. \\ \begin{itemize}
 
 \emph{Proof}: There exists a unique positive real number solution $x$ to the equation $x^5+x=10$,
 where $f(x)=x^5+x$ is an increasing function for $x>0$, such that $x$ must satisfy $1<x<2$ 
-because for $x=1$, $(1)^5+(1)=2$ which is less than 10, 
-and for $x=2$, $(2)^5+(2)=34$, which is greater than 10.
+because for $x=1$, $(1)^5+(1)=2<10$, and for $x=2$, $(2)^5+(2)=34>10$.
 Suppose that $x$ is rational. Then $x$ can be represented by a fraction $p/q$ such that $p,q\in\nats$ and the greatest common divisor of $p,q$ is $1$.
 Substitution into the equation yields $\frac{p^5}{q^5}+\frac{p}{q}=10$, $p^5+pq^4=10q^5$, $p(p^4+q^4)=10q^5$, $pr=10q^5$ where r is the integer $p^4+q^4$, so p divides $10q^5$.
-Since $p$ and $q$ do not share any prime divisors, $p$ must divide $10$. So $p$ can be $1, 2, 5$, or $10$.
-In the case $p=1$, $1<\frac{1}{q}<2$, $\frac{1}{2}<q<1$. There are no integers in $(\frac{1}{2},1)$. 
-In the case $p=2$, $1<\frac{2}{q}<2$, $1<q<2$. Again, there are no integers in $(1,2)$.
-In the case $p=5$, $1<\frac{5}{q}<2$, $2.5<q<5$, so $q$ can be $3$ or $4$. If $q=3$, $(\frac{5}{3})^5+(\frac{5}{3})=\frac{3530}{243}\neq10$ and if $q=4$, $(\frac{5}{4})^5+(\frac{5}{4})=\frac{4405}{1024}\neq10$.
-In the case $p=10$, $1<\frac{10}{q}<2$, $5<q<10$. The integers in $(5,10)$ are $6, 7, 8, 9$, but $q$ cannot be $6$ or $8$ because it would share the common divisor 2 with $p$, so that leaves $7$ and $9$.
-If $q=7$, $(\frac{10}{7})^5+(\frac{10}{7})=\frac{124010}{16807}\neq10$ and if $q=9$, $(\frac{10}{9})^5+(\frac{10}{9})=\frac{165610}{59049}\neq10$.
+Since $p$ and $q$ do not share any prime divisors, $p$ must divide $10$ so the possible values for $p$ are $1, 2, 5$, and $10$.\\
+In the case $p=1$, $1<\frac{1}{q}<2$, $\frac{1}{2}<q<1$. There are no integers in $(\frac{1}{2},1)$.\\
+\\
+In the case $p=2$, $1<\frac{2}{q}<2$, $1<q<2$. Again, there are no integers in $(1,2)$.\\
+\\
+In the case $p=5$, $1<\frac{5}{q}<2$, $2.5<q<5$. The integers in $(2.5, 5)$ are $3$ and $4$.
+\medskip
+If $q=3$, $(\frac{5}{3})^5+(\frac{5}{3})=\frac{3530}{243}\neq10$ and if $q=4$, $(\frac{5}{4})^5+(\frac{5}{4})=\frac{4405}{1024}\neq10$, so $q$ cannot be $3$ or $4$.\\
+\\
+In the case $p=10$, $1<\frac{10}{q}<2$, $5<q<10$. The integers in $(5,10)$ are $6, 7, 8$, and $9$, but $q$ cannot be $6$ or $8$ since it would share the common divisor 2 with $p$, so that leaves $7$ and $9$.
+If $q=7$, $(\frac{10}{7})^5+(\frac{10}{7})=\frac{124010}{16807}\neq10$ and if $q=9$, $(\frac{10}{9})^5+(\frac{10}{9})=\frac{165610}{59049}\neq10$, so $q$ cannot be $7$ or $9$.
+
 Therefore there are no integers $p$ and $q$ for $\frac{p^5}{q^5}+\frac{p}{q}=10$, so $x$ is not rational.
 That completes the proof$\;_{\square}$\\
 
@@ -120,6 +125,8 @@ We must show that $5^{5(k+1)+1}+4^{5(k+1)+2}+3^{5(k+1)}=11z$ for some integer $z
 $$5^{5(k+1)+1}+4^{5(k+1)+2}+3^{5(k+1)} = 5^{(5k+1)+5}+4^{(5k+2)+5}+3^{5k+5}$$
 
 \begin{eqnarray*}
+    &=& 5^5\cdot 5^{5k+1}+4^5\cdot 4^{5k+2}+3^5\cdot 3^{5k} \\
+    \\
     &=& 3125\cdot 5^{5k+1}+1024\cdot 4^{5k+2}+243\cdot 3^{5k} \\
     \\
     &=& 3124\cdot 5^{5k+1}+1023\cdot 4^{5k+2}+242\cdot 3^{5k}+(5^{5k+1}+4^{5k+2}+3^{5k}) \\
@@ -128,8 +135,9 @@ $$5^{5(k+1)+1}+4^{5(k+1)+2}+3^{5(k+1)} = 5^{(5k+1)+5}+4^{(5k+2)+5}+3^{5k+5}$$
     \\
     &=& 11(248\cdot 5^{5k+1}+93\cdot 4^{5k+2}+22\cdot 3^{5k}+j) \\
     \\
-    &=& 11z \mbox{, where } z\in\ints \mbox{ since it is the sum of products of integers. } \\
+    &=& 11z \mbox{, where } z=248\cdot 5^{5k+1}+93\cdot 4^{5k+2}+22\cdot 3^{5k}+j\\
 \end{eqnarray*}
+and $z\in\ints$ since it is the sum of products of integers.
 Since we have proved the basis step and the inductive step, we conclude that for all integers $n\geq 0$, $5^{5n+1}+4^{5n+2}+3^{5n}$ is a multiple of $11$. 
 That completes the proof by induction$\;_{\square}$\\
 
@@ -150,10 +158,9 @@ The number of ways to form subsets of $n$ elements where at least $1$ element mu
 
 Another way to count this is to count the number that involve $k$ elements from set $A$ and $n-k$ elements from set $B$, and sum over the possible values of $k$, which are $k=1$ to $k=n$.
 
-There are $C(n, k)$ ways to select $k$ elements from set $A$, $C(n, n-k)$ ways to select $n-k$ elements from set $B$, and this is multiplied by $k$ to count the permutations of which element was the $1$ required element from set $A$, for $k=1, 2,..., n$. \\
+There are $k$ ways to choose the $1$ required element from set $A$, $C(n, k)$ ways to select $k$ elements from set $A$, and $C(n, n-k)$ ways to select $n-k$ elements from set $B$, for $k=1, 2,..., n$. \\
 So the number of ways is $\displaystyle \sum_{k=1}^n kC(n,k)C(n, n-k)$.
-
 We know that $C(n,k)=C(n,n-k)$ because the number of ways to choose $k$ elements from $n$ objects is the same as choosing the $n-k$ elements to be left out.
-Therefore, the summation can be written as $\displaystyle \sum_{k=1}^n k(C(n,k))^2 \mbox{, which we have shown to be equal to } nC(2n-1,n-1)$. $\;_{\square}$ \\
+Therefore, the summation can be written as $\displaystyle \sum_{k=1}^n k(C(n,k))^2$, which we have shown to be equal to $\displaystyle nC(2n-1,n-1)\;_{\square}$ \\
 
 \end{document}

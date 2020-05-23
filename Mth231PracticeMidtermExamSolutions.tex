@@ -1,0 +1,402 @@
+\documentclass[12pt]{amsart}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{eucal}
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{xypic}
+\usepackage{mathrsfs}
+\usepackage{color}
+\xyoption{all}
+\pagestyle{empty}
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+\pagestyle{empty}
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+\setlength{\topmargin}{-0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\footskip}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+%----------------------------------------------------------------
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{exerc}[thm]{Exercise}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%----------------------------------------------------------------
+\begin{document}
+\thispagestyle{empty}
+
+
+\begin{huge}
+
+
+\textbf{Math 231 - Practice Midterm Solutions}
+
+\end{huge}
+
+\vspace{1cm}
+
+\begin{enumerate}
+
+
+
+\item Complete each of the definitions below:
+
+\begin{enumerate}
+
+\item  A set $A$ is a \underline{subset} of a set $B$ if ... {\color{red} every element of $A$ is also an element of $B$. }  \\
+
+\item  The \underline{power set} of a set $S$ is ...   {\color{red} the set of all subsets of $S$. } \\
+
+\item  An integer $n$ is \underline{even} if ... {\color{red} there exists an integer $k$ such that $n=2k$.}\\
+
+\item For any propositions $p,q$, the \underline{converse} of $p\rightarrow q$ is ...{\color{red} $q\rightarrow p$.} \\
+
+\item  A \underline{contradiction} is ... {\color{red} a proposition that is always false.}\\ \\
+
+\end{enumerate}
+
+
+\item Determine if each sentence is a true proposition, a false proposition, or not a proposition.
+
+
+	\begin{enumerate}
+		\item The empty set is both an element and a subset of any set $S$.\\ {\color{red} false proposition}\\
+
+		\item $x^2\geq 0$. \\ {\color{red} not a proposition (no quantifier on $x$)} \\
+
+        \item $\exists n\in\ints$ such that $n>1 \rightarrow n^2=n$. \\ {\color{red} true proposition (by default for $n=1$)} \\
+
+		\item $\exists n\in\ints$ such that $n>1 \wedge n^2=n$. \\ {\color{red} false proposition} \\
+
+        \item $\forall x\in\reals,\exists m\in\ints$ such that $m>x$. \\ {\color{red} true proposition} \\
+
+        \item $\exists m\in\ints$ such that $\forall x\in\reals$, $m>x$. \\ {\color{red} false proposition} \\
+
+        \item $\exists m\in\ints$ such that $\forall x\in\reals$, $m<x^2$. \\ {\color{red} true proposition}\\
+
+        \item  What would Jesus do? \\ {\color{red} not a proposition}\\
+
+
+	\end{enumerate}
+
+\newpage
+
+\item Let $p,q,r$ be propositions.  Consider the compound proposition $(\lnot p \vee q) \wedge \lnot(r\rightarrow p)$.\\
+
+\begin{enumerate}
+
+\item  Write a truth table for this compound proposition.
+
+\begin{table}[h]
+\begin{center}
+{\color{red}
+\begin{tabular}{c|c|c|c}
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  $p$ & $q$ & $r$ & $(\lnot p \vee q) \wedge \lnot(r\rightarrow p)$ \\
+  \hline
+  T  & T & T & F \\
+  \hline
+  T & T & F & F \\
+  \hline
+  T  & F & T & F  \\
+  \hline
+  T & F & F & F  \\
+  \hline
+  F & T & T & T  \\
+  \hline
+  F & T & F & F  \\
+  \hline
+  F & F & T & T  \\
+  \hline
+  F & F & F & F  \\
+
+\end{tabular}}
+\end{center}
+\end{table}
+
+
+
+\vspace{2cm}
+
+\item Negate this proposition and write the negation in terms of $\lnot$, $\wedge$, and $\vee$ only (parenthesis okay, as long as there isn't an $\lnot$ in front).\\
+
+{\color{red} $\lnot[(\lnot p \vee q) \wedge \lnot(r\rightarrow p)]\equiv \lnot(\lnot p \vee q) \vee (r\rightarrow p)\equiv (p\wedge \lnot q)\vee (\lnot r\vee p)$}
+
+
+\vspace{2cm}
+
+
+\end{enumerate}
+
+\item  Negate the proposition $\forall x\in\reals, \exists y\in\reals$ such that $x-y^2\geq 0$ and write the negation without using $\lnot$.\\
+
+
+{\color{red} $\exists x\in\reals$ such that $\forall y\in\reals$, $x-y^2<0$.}
+
+\newpage
+
+\item Let $P(m,n)$ be the propositional function $``n$ is a multiple of $m$."  Determine which of the following two statements are true.  $``$Bubble" the best answer.\\
+
+Note:  The set $\nats$ is the set of POSITIVE integers.\\
+
+%  Hard problem (not really)
+
+
+(I)  $\forall k\in\nats,\exists \ell\in \nats, P(\ell,k)$.
+
+%  True:  Let k be a positive integer.  Set \ell=k.  Then k=1(k), so P(\ell,k) is true.
+
+\bigskip
+
+(II)  $\exists \ell\in \nats,\forall k\in \nats, P(\ell,k)$.
+
+%  True:  Set \ell=1.  Then let k be a natural.  k=1(k), P(\ell,k) is true.
+
+
+
+\vspace{1cm}
+
+
+	\begin{enumerate}
+        \item[$\bigcirc$ (a)] Just (I)
+\bigskip
+		\item[$\bigcirc$ (b)] Just (II)
+\bigskip
+		\item[{\color{red}\begin{large}$\bullet$\end{large} (c)}] Both (I) and (II)  %**
+\bigskip
+		\item[$\bigcirc$ (d)] Neither (I) nor (II)
+	\end{enumerate}
+
+
+
+\vspace{0.5cm}
+
+\item Which is a counterexample disproving the following false proposition?  $``$Bubble" your answer.
+
+\bigskip
+
+\begin{center}
+$``$For all integers $a,b$, the exponential $a^{b}$ is an integer."
+
+\end{center}
+
+%  Easy
+
+\vspace{1cm}
+
+	\begin{enumerate}
+		\item[$\bigcirc$ (a)] $a=1,b=-2$
+\bigskip
+		\item[$\bigcirc$ (b)] $a=-1,b=-2$
+\bigskip
+		\item[$\bigcirc$ (c)] $a=4,b=\dfrac{1}{2}$
+\bigskip
+		\item[{\color{red}\begin{large}$\bullet$\end{large} (d)}] $a=2,b=-1$ %**
+\bigskip
+		\item[$\bigcirc$ (e)] None of the above
+	\end{enumerate}
+
+\newpage
+
+% SET COMPUTATIONS!!
+
+\item Let $A=\{1,2\}$, $B=\{2,3,5,7\}$, and $C=\{1,4,7\}$.  Compute each of the sets below:\\
+
+
+\begin{enumerate}
+
+\item[(i)] $A\cap B\cap C$\\
+
+
+{\color{red}$\emptyset=\{\}$, which is the empty set}
+
+
+\vfill
+
+\item[(ii)] $(A\cup B)\setminus C$\\
+
+{\color{red}  $\{2,3,5\}$}
+
+\vfill
+
+\item[(iii)] The power set $\powerset{(A)}$\\
+
+{\color{red} $\{\emptyset, \{1\},\{2\},\{1,2\}\}$}
+
+\vfill
+
+\item[(iv)] The direct product $A\times C$\\
+
+{\color{red} $\{(1,1),(1,4),(1,7),(2,1),(2,4),(2,7)\}$ }
+
+\vfill
+
+\end{enumerate}
+
+\newpage
+
+\item Prove that for any integer $n$, $n$ is odd if and only if $n^2+5$ is even.\\
+
+{\color{red}  \emph{Proof}:  Let $n$ be an integer.  First let's prove forward ($``$only if") direction.  Assume $n$ is odd.  Then there exists an integer $k$ such that $n=2k+1$.  By substitution \\ $n^2+5=(2k+1)^2+5=4k^2+4k+6=2(2k^2+2k+3)=2m$ for $m=2k^2+2k+3$, which is an integer.  Thus $n^2+5$ is even. \\
+
+Next let's prove the reverse ($``$if") direction.  Let's prove it by contrapositive.  The contrapositive of the reverse direction is $``$if n is even then $n^2+5$ is odd."  Let's assume that $n$ is even.  Then there exists an integer $k$ such that $n=2k$.  By substitution\\ $n^2+5=(2k)^2+5=4k^2+4+1=2(2k^2+2)+1=2m+1$ for $m=2k^2+2$, which is an integer.  Thus $n^2+5$ is odd.  That completes the proof$\;_{\square}$}
+
+\newpage
+
+
+\item Prove that for any real number $x$, if $x^2 $ is not rational then $x$ is not rational.  Give an counterexample showing that when the implication is replaced with its converse the resulting proposition is false.\\
+
+{\color{red} \emph{Proof}: Let $x$ be a real number.  Assume $x^2$ is not rational.  Let's proceed by contradiction.  That is, to yield a contradiction, assume $x$ is rational.  Then there exists integers $p,q$ such that $q\neq 0$ and $x=\frac{p}{q}$.  By squaring both sides we get $x^2=\frac{p^2}{q^2}$.  Since $p,q$ are integers, so are $p^2,q^2$.  Also, $q^2\neq 0$ since $q\neq 0$.  Thus $x^2$ is rational, which contradicts the assumption that $x^2$ is not rational.  That completes the proof$\;_{\square}$  \\
+
+Now consider the proposition $``$For any real number $x$, if $x$ is not rational then $x^2$ is not rational."  \\
+
+A counterexample showing this proposition is false is $x=\sqrt{2}$, since it is not rational (as has been shown) while $x^2=2=\frac{2}{1}$ is rational!  Note:  Answers may vary!}
+
+\newpage
+
+\item What is wrong with the following famous supposed $``$proof" that $1=2$?
+
+% Hard
+
+\bigskip
+
+\hspace{0.5cm} STEPS:
+
+\bigskip
+
+\hspace{0.5cm} (i)  Let $a,b\in\nats$ and assume $a=b$.
+
+\medskip
+
+\hspace{0.5cm} (ii) Then $a^{2}=ab$ by multiplying both sides by $a$.
+
+\medskip
+
+\hspace{0.5cm} (iii) Then $a^{2}-b^{2}=ab-b^{2}$ by subtracting $b^{2}$ from both sides.
+
+
+\medskip
+
+\hspace{0.5cm} (iv) Then $(a-b)(a+b)=b(a-b)$ by factoring.
+
+
+\medskip
+
+\hspace{0.5cm} (v)  Then $a+b=b$ by canceling the common factor $(a-b)$ from both sides.
+
+\medskip
+
+\hspace{0.5cm} (vi)  Then $2b=b$ by substitution.
+
+\medskip
+
+\hspace{0.5cm} (vii)  Then $2=1$ canceling the common factor $b$ from both sides $\mbox{ }_{\square}$\\
+
+{\color{red}  The issue with this proof is that step v is invalid.  The quantity $a-b$ is zero; we cannot cancel it!}
+
+
+\newpage
+
+
+
+\item Use induction to prove $\displaystyle \sum_{i=1}^n \frac{1}{i(i+1)}=\frac{n}{n+1}$ for all positive integers $n$.\\
+
+{\color{red} \emph{Proof}: $\displaystyle \sum_{i=1}^1 \frac{1}{i(i+1)}=\frac{1}{1(1+1)}=\frac{1}{2}=\frac{1}{1+1}$.  So $\displaystyle \sum_{i=1}^n \frac{1}{i(i+1)}=\frac{n}{n+1}$ is satisfied (true) at $n=1$.  This establishes the base case.\\
+
+Let $k$ be a positive integer.  Assume $\displaystyle \sum_{i=1}^k \frac{1}{i(i+1)}=\frac{k}{k+1}$ is true (inductive hypothesis).  Then
+
+\begin{eqnarray*}
+\sum_{i=1}^{k+1} \frac{1}{i(i+1)} &=& \left(\sum_{i=1}^k \frac{1}{i(i+1)}\right) +\frac{1}{(k+1)[(k+1)+1]} \\
+\\
+&=& \frac{k}{k+1}+\frac{1}{(k+1)(k+2)} \\
+\\
+&=& \frac{1}{k+1}\left(k+\frac{1}{k+2}\right) \\
+\\
+&=& \frac{1}{k+1}\left(\frac{k(k+2)}{k+2}+\frac{1}{k+2}\right) \\
+\\
+&=& \frac{1}{k+1}\left(\frac{k^2+2k+1}{k+2}\right) \\
+\\
+&=& \frac{1}{k+1}\left(\frac{(k+1)^2}{k+2}\right) \\
+\\
+&=& \frac{k+1}{(k+1)+1}.\end{eqnarray*}
+
+That completes the inductive step.  Thus $\displaystyle \sum_{i=1}^n \frac{1}{i(i+1)}=\frac{n}{n+1}$ for all positive integers $n$, which completes the proof $\;_{\square}$
+}
+
+\newpage
+
+
+\item  Prove that for all non-empty sets $X,Y$, if $X\times Y=Y\times X$ then $X=Y$.\\
+
+{\color{red} \emph{Proof}:  Let $X,Y$ be non-empty sets.  Assume $X\times Y=Y\times X$.  Let $x\in X$ and $y\in Y$ (which we can do since $X\neq\emptyset$ and $Y\neq\emptyset$).  We wish to show $x\in Y$ and $y\in X$.  Since $(x,y)\in X\times Y$ and $X\times Y=Y\times X$, it follows that $(x,y)\in Y\times X$.  Hence $x\in Y$ and $y\in X$.  So $X\subseteq Y$ and $Y\subseteq X$.
+Thus $X=Y$.  That completes the proof$\;_{\square}$}
+
+
+\newpage
+
+\item Use mathematical induction to prove that $9$ divides $n^{3}+(n+1)^{3}+(n+2)^{3}$ whenever $n$ is a non-negative integer.\\
+
+{\color{red} \emph{Proof}: $0^3+1^3+2^3=9$ and $9$ divides $9$.  So $9$ divides $n^{3}+(n+1)^{3}+(n+2)^{3}$ for $n=0$.  That establishes the base case.  \\
+
+Let $k$ be non-negative integer.  Assume  $9$ divides $k^{3}+(k+1)^{3}+(k+2)^{3}$ (inductive hypothesis).  Then there exists an integer $\ell$ such that  $k^{3}+(k+1)^{3}+(k+2)^{3}=9\ell$.  This is equivalent to $(k+1)^{3}+(k+2)^{3}=9\ell -k^3$. Then
+
+
+\begin{eqnarray*}
+(k+1)^{3}+((k+1)+1)^{3}+((k+1)+2)^{3} &=& (k+1)^{3}+(k+2)^{3}+(k+3)^{3}\\
+\\
+&=& 9\ell -k^3+ (k+3)^{3}\\
+\\
+&=& 9\ell -k^3+ k^3+3k^2 (3)+3k(3)^2+3^3\\
+\\
+&=& 9\ell +9k^2 +27k+27\\
+\\
+&=& 9(\ell +k^2 +3k+3),\end{eqnarray*}
+
+
+which is divisible by $9$ since $\ell +k^2 +3k+3$ is an integer.  That completes the inductive step.  Therefore $9$ divides $n^{3}+(n+1)^{3}+(n+2)^{3}$ whenever $n$ is a non-negative integer.  That completes the proof$\;_{\square}$ }\\
+
+
+
+%  Base case:  For $n=0, we have $0^{3}+1^{3}+2^{3}=9$ which is divisible by $9$.
+
+%  Assume $n\geq 0$ is an integer and $9$ divides $n^{3}+(n+1)^{3}+(n+2)^{3}$.  That is, there exists an integer $k$ such that $n^{3}+(n+1)^{3}+(n+2)^{3}=9k$.
+
+%  Then $(n+1)^{3}+(n+2)^{3}+(n+3)^{3}=n^{3}+9n^{2}+27n+27+(n+2)^{3}+(n+3)^{3}=9k+9n^{2}+27n+27=9(k+n^{2}+3n+3)$.  Since $k+n^{2}+3n+3$ is an integer, it follows that $9$ divides $(n+1)^{3}+(n+2)^{3}+(n+3)^{3}$ completing the proof by induction
+
+
+\newpage
+
+\item Use mathematical induction to show that every integer greater than or equal to $2$ can be expressed in the form $2x+3y$ where $x,y$ are non-negative integers.\\
+
+
+{\color{red}  \emph{Proof}: $2=2(1)+3(0)$ and $3=2(0)+3(1)$.  So $2$ and $3$ can be expressed in the form $2x+3y$ where $x,y$ are non-negative integers.  These are the necessary base cases.\\
+
+Let $k\geq 3$ be an integer and assume every integer $i$ satisfying $2\leq i\leq k$ can be expressed in the form $2x+3y$ where $x,y$ are non-negative integers (strong inductive hypothesis).  Then in partcular, $k-1=2a+3b$ for some non-negative integers $a,b$.  Then $k+1=2+(k-1)=2+2a+3b=2(1+a)+3b$.  Since $1+a$ and $b$ are non-negative integers we have shown that $k+1$ can be expressed in the form $2x+3y$ where $x,y$ are non-negative integers.  This completes the inductive step.  Therefore every integer greater than or equal to $2$ can be expressed in the form $2x+3y$ where $x,y$ are non-negative integers.  That completes the proof$\;_{\square}$ }
+
+
+
+\end{enumerate}
+
+
+
+\end{document}

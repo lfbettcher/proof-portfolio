@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1590186378 "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.tex" "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.pdf" "Proof Portfolio Problems" 1590186402
-  "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.aux" 1590186379 144 c89edc3eb28a976f62dfba342f53289c ""
-  "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.tex" 1590186400 8093 0845d015f11e22c86083e31f4d92a1d5 ""
+["pdflatex"] 1590192123 "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.tex" "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.pdf" "Proof Portfolio Problems" 1590192150
+  "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.aux" 1590192124 144 c89edc3eb28a976f62dfba342f53289c ""
+  "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.tex" 1590192148 8252 7b42924c6f2530d6716287c1bf18c176 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -111,11 +111,11 @@
   "/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1586288239 4811913 0be9a7e86c70a26e5e3042966bcd7097 ""
   "/usr/local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1586288259 2432462 fd0fa20e9a3cb5f8169fd0ba1c955158 ""
   "/usr/local/texlive/2020/texmf.cnf" 1586288231 577 d60164b4589a341208aff7a667fbbdcb ""
-  "Proof Portfolio Problems.aux" 1590186379 144 c89edc3eb28a976f62dfba342f53289c "pdflatex"
-  "Proof Portfolio Problems.tex" 1590186400 8093 0845d015f11e22c86083e31f4d92a1d5 ""
+  "Proof Portfolio Problems.aux" 1590192124 144 c89edc3eb28a976f62dfba342f53289c "pdflatex"
+  "Proof Portfolio Problems.tex" 1590192148 8252 7b42924c6f2530d6716287c1bf18c176 ""
   (generated)
   "Proof Portfolio Problems.pdf"
+  "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.pdf"
   "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.log"
   "Proof Portfolio Problems.log"
   "Proof Portfolio Problems.aux"
-  "/Users/lisa/Documents/OSU/MTH 231/LaTeX/Proof Portfolio Problems.pdf"
