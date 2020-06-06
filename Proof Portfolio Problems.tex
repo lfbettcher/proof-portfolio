@@ -67,10 +67,9 @@ Hints:  You may use the following without justification. \\ \begin{itemize}
 \bigskip
 \bigskip
 
-\emph{Proof}: There exists a unique positive real number solution $x$ to the equation $x^5+x=10$,
-where $f(x)=x^5+x$ is an increasing function for $x>0$, such that $x$ must satisfy $1<x<2$ 
-because for $x=1$, $(1)^5+(1)=2<10$, and for $x=2$, $(2)^5+(2)=34>10$.
-Suppose that $x$ is rational. Then $x$ can be represented by a fraction $p/q$ such that $p,q\in\nats$ and the greatest common divisor of $p,q$ is $1$.
+\emph{Proof}: Consider $x=1$, $(1)^5+(1)=2<10$, and consider $x=2$, $(2)^5+(2)=34>10$.
+Since $f(x)=x^5+x$ is an increasing function for $x>0$, there exists a unique positive real number solution $x$ to the equation $x^5+x=10$ such that $x$ must satisfy $1<x<2$.
+Suppose that the solution $x$ to $x^5+x=10$ is rational. Then $x$ can be represented by a fraction $p/q$ such that $p,q\in\nats$ and the greatest common divisor of $p,q$ is $1$.
 Substitution into the equation yields $\frac{p^5}{q^5}+\frac{p}{q}=10$, $p^5+pq^4=10q^5$, $p(p^4+q^4)=10q^5$, $pr=10q^5$ where r is the integer $p^4+q^4$, so p divides $10q^5$.
 Since $p$ and $q$ do not share any prime divisors, $p$ must divide $10$ so the possible values for $p$ are $1, 2, 5$, and $10$.\\
 In the case $p=1$, $1<\frac{1}{q}<2$, $\frac{1}{2}<q<1$. There are no integers in $(\frac{1}{2},1)$.\\
@@ -96,13 +95,17 @@ That completes the proof$\;_{\square}$\\
 \bigskip
 \bigskip
 
-\emph{Proof}: Let $S,T$ be sets. First let's prove the forward direction. Assume $S\subseteq T$.
-Let $X$ be an arbitrary element of $\powerset{(S)}$, then $X\subseteq S$ so $X\subseteq T$.
-Since $\powerset{(T)}$ is the set of all subsets of $T$, then $X\in \powerset{(T)}$. 
+\emph{Proof}: Let $S,T$ be sets. First let's prove the forward direction: if $S\subseteq T$ then $\powerset{(S)}\subseteq \powerset{(T)}$.
+Assume $S\subseteq T$. Let $X$ be an arbitrary element of $\powerset{(S)}$, then $X\subseteq S$. Since  $S\subseteq T$, it follows that $X\subseteq T$.
+By the definition of a powerset, $\powerset{(T)}$ is the set of all subsets of $T$, and because $X\subseteq T$ then $X\in \powerset{(T)}$. 
 Since $X$ was arbitrary, it follows that all elements of $\powerset{(S)}$ are in $\powerset{(T)}$, so $\powerset{(S)}\subseteq \powerset{(T)}$.
 
-Next let's prove the reverse direction. Assume $\powerset{(S)}\subseteq \powerset{(T)}$. 
-Since $S\in \powerset{(S)}$, it follows that $S\in \powerset{(T)}$. Therefore $S\subseteq T$. That completes the proof$\;_{\square}$\\
+Next let's prove the reverse direction: if $\powerset{(S)}\subseteq \powerset{(T)}$ then $S\subseteq T$.
+Assume $\powerset{(S)}\subseteq \powerset{(T)}$. 
+Since $S\in \powerset{(S)}$ and $\powerset{(S)}\subseteq \powerset{(T)}$, it follows that $S\in \powerset{(T)}$.
+Since S is an element of both $\powerset{(S)}$ and $\powerset{(T)}$, and $\powerset{(S)}\subseteq \powerset{(T)}$, then $S\subseteq T$.
+
+Now that we have proved both the forward and reverse directions, we have proved that for all sets $S,T$, $S\subseteq T$ if and only if $\powerset{(S)}\subseteq \powerset{(T)}$$\;_{\square}$\\
 
 \newpage
 
@@ -120,7 +123,7 @@ So $5^{5(0)+1}+4^{5(0)+2}+3^{5(0)}=22$, which is a multiple of $11$. That establ
 Let $k\geq 0$ be an integer, and assume that $5^{5k+1}+4^{5k+2}+3^{5k}$ is a multiple of 11. 
 Then $\exists j\in\ints$ such that $5^{5k+1}+4^{5k+2}+3^{5k}=11j$. This is the inductive hypothesis.
 
-We must show that $5^{5(k+1)+1}+4^{5(k+1)+2}+3^{5(k+1)}=11z$ for some integer $z$. Then
+Now, we will show that our hypothesis implies that $5^{5(k+1)+1}+4^{5(k+1)+2}+3^{5(k+1)}=11z$ for some integer $z$. Then
 
 $$5^{5(k+1)+1}+4^{5(k+1)+2}+3^{5(k+1)} = 5^{(5k+1)+5}+4^{(5k+2)+5}+3^{5k+5}$$
 
@@ -152,6 +155,8 @@ Hint:  Consider forming committees of $n$ people (with a chairperson) that are c
 
 \bigskip
 \bigskip
+
+\emph{Note}: No changes were made since the second draft.
 
 \emph{Proof}: Let $A$ and $B$ be disjoint sets of $n$ distinct elements where $n\geq 1$ is an integer.
 The number of ways to form subsets of $n$ elements where at least $1$ element must be from set $A$ is $nC(2n-1,n-1)$ since there are $n$ ways to choose $1$ element from $A$ and $2n-1$ elements remaining to choose $n-1$ elements.
